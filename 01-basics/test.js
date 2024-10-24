@@ -181,6 +181,7 @@ console.log(Math.max(2,3,4,5,6,-322,1,-4,2));//provide maximum value
  console.log(Math.floor((Math.random()*(max-min)+1)+min));
 
  
+ console.log("The End");
  
 
 
