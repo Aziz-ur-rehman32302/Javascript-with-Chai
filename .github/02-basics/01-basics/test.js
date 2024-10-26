@@ -260,6 +260,37 @@ let arrayn1 = [1,2,3,4,5]
 arrayn1.splice(1,3,101,102);
 console.log(arrayn1);
 console.log(typeof array);
+//   Concat and Spread Operator
+let firstArray = ["Aziz","Ali","Ahmad"]
+let secondArray = ["Aziz","Ali","Ahmad"]
+//Now combaine Both Array
+console.log(firstArray.concat(secondArray));
+console.log(...firstArray,...secondArray);
+console.log(typeof firstArray);
+
+let all_names=[...firstArray,...secondArray]
+console.log(all_names);
+console.log(typeof all_names);
+
+//Flat Method In Array
+let anotherArray = [1,2,3,[4,5,],6,[7,8,[9,8,7]]];
+console.log(anotherArray.flat(1));// it change array intosingle array
+//who to convert object ,string etc in array
+//we can use from keyword to convert into array
+let iArray = "Aziz"
+console.log(Array.isArray(iArray));
+console.log(Array.isArray("Aziz"));
+console.log(Array.from(iArray));
+let score1 =100;
+let score2 = 200;
+let score3 = 300;
+console.log(Array.of(score1,score2,score3));
+console.log(Array.from({name : "Aziz"}));//intersting because we cannot tell the value that can be convert into array like upper case
+
+
+
+
+
 
 
 
