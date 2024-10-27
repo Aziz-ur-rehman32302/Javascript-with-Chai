@@ -40,4 +40,90 @@ console.log(student.greeting());
 console.log(student.greetingtwo());
 
 
+// object creation with singleton
+// let tinderuser = new Object()>>singleton object
+// console.log(tinderuser);//> {}
+let tinderuser = {}//?>> non-singleton object
+console.log(tinderuser);// same output like uppercase
+//1st way to declear values in object
+tinderuser={
+    Email:"abc123@gmail.com"
+}
+
+//2nd way to declear values in object
+tinderuser.name="summy"
+tinderuser.id = 123
+
+// console.log(tinderuser);
+
+// object within an object >nesting in object
+let regularuser = {
+    Email:"aziz123@gmail.com",
+    fullName:{
+        user:{
+            firstname:"Ali",
+            lastname:"Raza"
+        }
+    } 
+}
+console.log(regularuser);
+
+console.log(regularuser.notexit?.fullName);//>hint study in next lecture 
+// console.log(regularuser.fullName);
+// console.log(regularuser.fullName.user);
+
+// how to marje object
+let obj1 ={
+    1:"a",
+    2:"b"
+}
+let obj2 ={
+    3:"c",
+    4:"d"
+}
+// let obj3 ={obj1,obj2};
+// console.log(obj3);
+//++++++++++++ {} is use as a traget all values add in empty object and obj1,obj2 are sources 
+// const obj4 =Object.assign({},obj1,obj2)
+// console.log(obj4);
+// console.log(obj1);
+//separate operator
+// let obj5 = {...obj1,...obj2}
+// console.log(obj5);
+// console.log(obj1);
+//++++++++++++++++++++++++++++++++++++++++++
+// console.log(tinderuser);
+// console.log(Object.keys(tinderuser));//datatype of keys is Array
+// console.log(Object.values(tinderuser));//datatype of values is Array
+// console.log(Object.entries(tinderuser));//datatype of entries is Array in array
+// console.log(tinderuser.hasOwnProperty("id"));// ask value from object
+
+
+//-----------------------     Object de-structure and JSON API intro     ----------------------
+//De-Structure mean git value from object
+console.log(tinderuser);
+let {name} = tinderuser;//we can directly access the name from tinderuser using this method
+let {Email:msg} = tinderuser;//we can directly change Email with msg noww access with msg
+
+console.log(name);
+console.log(msg);
+//----------------------     JSON API intro        -------------------------------
+//API is somthing that perform some task for us 
+// values return from backend in XML structure that is very complex but values in JSON
+
+//JSON look like as > {} object with out any name but Difference is that keys and values both are in string
+{
+    "name" = "aziz",
+    "course" = "Js",
+    "Teacher" = "hitesh"
+} 
+// JSON Is in the Form Of Array
+[
+    {},
+    {}
+]
+// Json END
+
+
+
 
