@@ -112,17 +112,100 @@ console.log(msg);
 // values return from backend in XML structure that is very complex but values in JSON
 
 //JSON look like as > {} object with out any name but Difference is that keys and values both are in string
-{
-    "name" = "aziz",
-    "course" = "Js",
-    "Teacher" = "hitesh"
-} 
-// JSON Is in the Form Of Array
-[
-    {},
-    {}
-]
+// {
+//     "name" = "aziz",
+//     "course" = "Js",
+//     "Teacher" = "hitesh"
+// } 
+// // JSON Is in the Form Of Array
+// [
+//     {},
+//     {}
+// ]
 // Json END
+//==========================                                         ========================
+//========================    Functions and parameter in javascript   ================
+//==========================                                         ========================
+function addMyNumber(num1,num2){
+    console.log(num1+num2);
+    
+
+}
+// addMyNumber(2,3)
+// addMyNumber(2,"3")
+// addMyNumber("2",3)
+// addMyNumber("2",null)
+//let pass=addMyNumber(2,null);//pass variable is undefine due to return keyword
+//console.log("Can't Do It:-",pass);//this statement can not work because return keyword is not used 
+
+//console.log("result",addMyNumber(2,null));//this statement can not work because return keyword is not used 
+
+
+//    An Other Concept
+function myfun(numbera,numberb){
+    //  let result = numbera+numberb;//1st method
+    //  return result;
+    return numbera+numberb;//second method
+    //when we can use return statement then we can store it in new variable like result
+}
+    let result = myfun(10,10);
+    console.log("Result:",result)
+
+//  next method
+function userloggin(Username){
+    if(!Username){
+        console.log("Plz Enter Username");
+        return
+    }
+    // if(Username===undefined){
+    //     console.log("Plz Enter Username");
+    //     return
+    // }
+    return `${Username} just loggin`
+}    
+function userloggin(Username="Rehman"){ //this value is print when user cannot pass value
+    if(!Username){//this block is not execute
+        console.log("Plz Enter Username");
+        return
+    }
+    return `${Username} just loggin`
+}    
+console.log(userloggin());
+// console.log(userloggin(null));
+// console.log(userloggin(""));
+// console.log(userloggin("Aziz"));
+
+//=======================                                            ====================
+//====================== Functions with objects and array in javascript   =============
+//=======================                                            ====================
+//when we calculate cards price in E-commerace website then build this type of logic
+function calculateprice(...num1){
+    return(num1)
+}
+console.log(calculateprice(1,2,3,4,5));//this is rest operator ... collect all values into an arraythen we can add
+//we can pass an object in a function
+// let student4 = {
+//     name:"Aziz",
+//     rollnumber:123
+// }
+function obj(anyobj){
+    console.log(`The Name ${anyobj.name} and Rollnumber is ${anyobj.rollnumber}`);
+    
+}
+// obj(student4)
+obj({//direct pass an object
+    name:"Aziz",
+    rollnumber:123
+})
+
+//Array pass in an function
+// let myarray=[100,200,300,400];
+
+function array(getarray){
+return(getarray[0]);
+}
+console.log(array([100,200,300,400]));
+// console.log(array(myarray));
 
 
 

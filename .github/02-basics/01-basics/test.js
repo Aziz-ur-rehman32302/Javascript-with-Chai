@@ -330,3 +330,4 @@ console.log(Array.from({name : "Aziz"}));//intersting because we cannot tell the
 
 
 
+ 
