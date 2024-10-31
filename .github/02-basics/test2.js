@@ -13,17 +13,19 @@ let student ={
     name:"Aziz",
     [mysym]:"khan2",//symbol key in object 
     "lname":"Rehman",
+    lname:"Rehman",
     class : "1st year",
     Email: "abc213@gmail.com",
     num:1233,
 }
-// console.log(student);
-// console.log(student[mysym]);
-// console.log(typeof student[mysym]);//object
-// console.log(student["lname"]);
-// console.log( student.Email);
-// console.log( student["Email"]);//another method to access value in object
-// console.log(typeof student.Email);
+console.log(student);
+console.log(student[mysym]);
+console.log(typeof student[mysym]);//object
+console.log(student["lname"]);//un this method we can  use  string in key value pair
+console.log(student.lname);
+console.log( student.Email);
+console.log( student["Email"]);//another method to access value in object
+console.log(typeof student.Email);
 //change value in object
 // console.log(student.Email="rehman229@gmail.com");
 // Object.freeze(student);
@@ -92,7 +94,7 @@ let obj2 ={
 // console.log(obj5);
 // console.log(obj1);
 //++++++++++++++++++++++++++++++++++++++++++
-// console.log(tinderuser);
+// console.log("01:",tinderuser);
 // console.log(Object.keys(tinderuser));//datatype of keys is Array
 // console.log(Object.values(tinderuser));//datatype of values is Array
 // console.log(Object.entries(tinderuser));//datatype of entries is Array in array
@@ -104,9 +106,11 @@ let obj2 ={
 console.log(tinderuser);
 let {name} = tinderuser;//we can directly access the name from tinderuser using this method
 let {Email:msg} = tinderuser;//we can directly change Email with msg noww access with msg
+let msg1 = tinderuser.Email;//we can directly change Email with msg1 noww access with msg
 
 console.log(name);
 console.log(msg);
+console.log(msg1);
 //----------------------     JSON API intro        -------------------------------
 //API is somthing that perform some task for us 
 // values return from backend in XML structure that is very complex but values in JSON
@@ -155,25 +159,30 @@ function myfun(numbera,numberb){
 function userloggin(Username){
     if(!Username){
         console.log("Plz Enter Username");
-        return
+        return;
     }
     // if(Username===undefined){
     //     console.log("Plz Enter Username");
     //     return
     // }
+    
     return `${Username} just loggin`
+    // return 
 }    
-function userloggin(Username="Rehman"){ //this value is print when user cannot pass value
-    if(!Username){//this block is not execute
-        console.log("Plz Enter Username");
-        return
-    }
-    return `${Username} just loggin`
-}    
-console.log(userloggin());
+console.log(userloggin("usman"));
+
+
+// function userloggin(Username="Rehman"){ //this value is print when user cannot pass value
+//     if(!Username){//this block is not execute
+//         console.log("Plz Enter Username");
+//         return
+//     }
+//     return `${Username} just loggin`
+// }    
+// console.log(userloggin());
 // console.log(userloggin(null));
 // console.log(userloggin(""));
-// console.log(userloggin("Aziz"));
+// console.log(output);
 
 //=======================                                            ====================
 //====================== Functions with objects and array in javascript   =============
@@ -207,6 +216,83 @@ return(getarray[0]);
 console.log(array([100,200,300,400]));
 // console.log(array(myarray));
 
+
+//====================                                      ================
+//===================  Global and local scope in javascript =================
+//====================                                      =================
+var d = 4;
+if(true){
+ let a =1;
+ var b = 2;
+ const c =3; 
+ console.log("inner value",d);// globel scope
+ 
+}
+// console.log(a); // a is not defined
+console.log(b);  // c is define  due to globel scope
+// console.log(c); // c is not defined
+
+// Next Level of scope in js
+function one(){
+    const Username = "Aziz";
+    function two (){
+        const website = "youtube";
+        console.log(Username);
+        
+    }
+    // console.log(website);
+    two();
+}
+one();
+//++++++++++++++++++++++++++++ next level Interesting +++++++++++++++++++++++
+console.log(addone(5));//function call
+function addone (num){
+    return num +1
+}
+// NOW >>>>>>>
+// console.log(addtwo(5));//ReferenceError: Cannot access 'addtwo' before initialization
+// const addtwo = function(num){//because function is store in variable
+//     return num + 2
+// }
+//=====================                                     ====================
+//==================   THIS and arrow function in javascript   =================
+//=====================                                     ===================
+
+
+let company = {
+    emp :"Azhar",
+    empID:123,
+    empPay:30000,
+   empWork:function(){
+    console.log(`${this.emp} ,1st Employee in Company`);
+    console.log(this);
+    
+    }
+    
+}
+console.log(company.empWork());
+company.emp="Ali";
+console.log(company.empWork());
+Object.freeze(company);// lock changes in object
+company.emp="Ali Raza";
+console.log(company.empWork());
+console.log(this);
+
+//point globel object in browser is window
+//==============================    ARROW FUNCTION   ============================
+//arrow function is like a simple function in both condition log(this) return undefine
+//syntex
+// let arrowfun=(num1,num2)=>{  // this is explicit return when we use return keyword in function know as explicit
+// return num1+num2                 //basics 
+// }
+
+// let arrowfun=(num1,num2)=>num1+num2      //implicit return function  writen in same line
+
+// let arrowfun=(num1,num2)=> (num1+num2)      //implicit return function  writen in same line if we can use()paranthesis we can not use return keyword
+
+
+let arrowfun=(num1,num2)=> ({name:"Ali",rollnumber:123})  //in implicit return function  the use of ()paranthes help to declear the object 
+console.log(arrowfun());
 
 
 

@@ -38,7 +38,7 @@ because of issue in a block scope and functional scop */
 
 // (1):STACK MEMORY:-In primitive datatype stack memory is used. when we use stack memory then copy of variable is recieved that can be declear
 
-// (2):HEAP MEMORY:-In Non-primitive datatype heap memory is usedand when an object or variable declear in heap then we can access referance of orginal value and in heap memory orginal value is change
+// (2):HEAP MEMORY:-In Non-primitive datatype heap memory is used and when an object or variable declear in heap then we can access referance of orginal value and in heap memory orginal value is change
 
 // EXAMPLE OF STACK
 let myFirstName = "aziz"; 
@@ -105,12 +105,12 @@ console.log(str.toLowerCase());
 // (6):- Trim Method or function
 console.log(str.trim());// remove space from start and end of string
 // (7):- slice Method or function
-console.log(str.substring(10,16));// print or return stsrt index to end index
+console.log(str.substring(10,16));// print or return start index to end index
 console.log(str.slice(10,16));// same work as a substring but it takes negative values
 console.log(str.slice(2,-4));
 // (7):- Replace Method or function
 console.log(str.replace("r","l"));//replace r with l
-// (8:- include Method or function
+// (8:- include Method or function check the specific character or word in string
 console.log(str.includes("Az"));
 console.log(str.includes("Ali"));
 // (9):- Split Method or function
@@ -127,7 +127,7 @@ console.log(name.concat(":marks:").concat(marks));
 //  How to declear string With new Method with the help new keyword
 let str_1 = new String('Rehman') //('Rehman') is a know as constructor
 console.log(str_1);
-console.log(str.__proto__);
+// console.log(str.__proto__);
 
 
 //========================                                  ===============================
@@ -140,11 +140,13 @@ console.log(num);
 //          Number properties and Method
 //(01):- toString method
 console.log(num.toString());
+console.log(typeof num);
+
 console.log(num.toString().length);// .length is a property of string
 //(02):- toFixed method
-console.log(num.toFixed(1));
+console.log(num.toFixed(3));//this method show that number after floating point that is passed in constructor 
 //(03):- toPrecision method 
-console.log(score.toPrecision(4)); // it gives only 4 values
+console.log(score.toPrecision(4)); // it return only that values passed in constructor
 //(04):- toLocaleString method 
 let lNum = 1234456;
 console.log(lNum.toLocaleString('en-IN')); //it help in readabiliy of large value 
@@ -183,37 +185,39 @@ console.log(Math.max(2,3,4,5,6,-322,1,-4,2));//provide maximum value
 //========================                                  ===============================
 //=======================         Datas in Javascript        ===============================
 //========================                                  ================================
-// let yourData = Date()
-//  console.log(typeof yourData);// string
-//  const myData = new Date()//declear an object with new keyword
-//  console.log(myData);
-//  console.log(typeof myData);//object
-//  console.log(myData.toString());//Fri Oct 25 2024 16:44:53 GMT+0500 (Pakistan Standard Time)
-//   console.log(myData.toDateString());//Fri Oct 25 2024
-//   console.log(myData.toLocaleDateString());//10/25/2024
-//   console.log(myData.toLocaleString());//10/25/2024, 4:44:53 PM
-//   console.log(myData.toTimeString());//16:44:53 GMT+0500 (Pakistan Standard Time)
-//   console.log(myData.toISOString());//2024-10-25T11:44:53.492Z
-//   console.log(myData.toJSON());//2024-10-25T11:44:53.492Z
+let yourData = Date()
+ console.log(typeof yourData);// string
+ const myData = new Date()//declear an object with new keyword
+ console.log("TODay DATE",myData);// 2024-10-30T06:23:57.059Z
+ console.log(typeof myData);//object
+ console.log(myData.toString());//Fri Oct 25 2024 16:44:53 GMT+0500 (Pakistan Standard Time)
+  console.log(myData.toDateString());//Fri Oct 25 2024
+  console.log(myData.toLocaleDateString());//10/25/2024
+  console.log(myData.toLocaleString());//10/25/2024, 4:44:53 PM
+  console.log(myData.toTimeString());//16:44:53 GMT+0500 (Pakistan Standard Time)
+  console.log(myData.toISOString());//2024-10-25T11:44:53.492Z
+  console.log(myData.toJSON());//2024-10-25T11:44:53.492Z
 
-  // How to declear specific data
-  //  let takeData = new  Date(2023 ,0,23)
-//   let takeData = new  Date(2023 ,0,23 , 5,6)
+//   How to declear specific data
+   // let takeData = new  Date(2023 ,0,23)
+  //let takeData = new  Date(2023 ,0,23 , 5,6)//1/23/2023, 5:06:00 AM
   let takeData = new  Date("12-01-2023")
- console.log(takeData.toLocaleString());
-//  console.log(takeData.toString());
-//  console.log(takeData.toDateString());
-//  console.log(takeData.toLocaleDateString());
+ console.log("own date",takeData);
+ console.log(takeData.toLocaleString());//
+ console.log(takeData.toString());
+ console.log(takeData.toDateString());
+ console.log(takeData.toLocaleDateString());
 
 // Use of Time Stamps when we use the pool to define winner
 let myTimestamps = Date.now()//ya line exit abhi ki data return keray gi
-console.log(myTimestamps);// time in milsec>>1729860026594
+console.log("myTimestamps",myTimestamps);// time in milsec>>1729860026594
 console.log(takeData.getTime());// convert time into milesecond >> 1701370800000
 console.log(Math.floor(Date.now()/1000));// this line print presand time into sec(1729860894)
+console.log((Date.now()/1000));// this line print presand time into sec(1729860894)
 ///////////////////////////////////////////////
 // to check special part of data
 let checkDate = new Date();
-console.log(checkDate);
+console.log("checkDate",checkDate);
 console.log(checkDate.getDate());
 console.log(checkDate.getMonth());
 console.log(checkDate.getMinutes());
@@ -221,11 +225,11 @@ console.log(checkDate.getMilliseconds());
 console.log(checkDate.getSeconds());
 
 ///////////////////////// Most imp Concept
-let final =checkDate.toLocaleString('default' , {
-   // weekday:"long",
-   // timeStyle:"full",
-   // calendar:"calendar"
-   dayPeriod:"narrow"
+let final =checkDate.toLocaleString( {
+   //  weekday:"long",
+   // timeStyle:"full"
+   calendar:"calendar",
+   // dayPeriod:"narrow"
 })
 console.log(final);//Friday
 
@@ -242,7 +246,7 @@ console.log(array);
 // array.pop();
 //   for question purpose methods
 console.log(array.includes(5));
-console.log(array.indexOf(2));
+console.log(array.indexOf(3));
 // point
 let newarray = array.join()//this method change array into string
 console.log(newarray);
@@ -251,10 +255,10 @@ console.log(typeof newarray);//string
 // Slice and splice method
 console.log("A",array);
 console.log("slice Method",array.slice(1,3));
-console.log("A",array);// slice not change the orignal array last index range is include 
+console.log("A",array);// slice not change the orignal array last index range is  not include 
 
 console.log("splice Method",array.splice(1,3));
-console.log("B",array);//in splice end index is exclusive and orignal array is changed and range is not include
+console.log("B",array);//in splice end index is exclusive and orignal array is changed and range is  include
 // another function of splice it is use 
 let arrayn1 = [1,2,3,4,5]
 arrayn1.splice(1,3,101,102);
@@ -286,8 +290,7 @@ let score2 = 200;
 let score3 = 300;
 console.log(Array.of(score1,score2,score3));
 console.log(Array.from({name : "Aziz"}));//intersting because we cannot tell the value that can be convert into array like upper case
-
-
+console.log(Array.from("Aziz"));//convert string into array
 
 
 
