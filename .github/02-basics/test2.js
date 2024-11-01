@@ -293,6 +293,27 @@ console.log(this);
 
 let arrowfun=(num1,num2)=> ({name:"Ali",rollnumber:123})  //in implicit return function  the use of ()paranthes help to declear the object 
 console.log(arrowfun());
+//==========================                                             =================
+//========================= Immediately Invoked Function Expressions IIFE ================
+//==========================           why we use it  IIFE                   =================
+//  We have used the IIFE to remove the pollution of the global scope
+//  A function that is executed Immediately is called IIFE
+//syntex
+
+//  interview question
+((name)=>{//un-named IIFE
+    console.log(`This is a arrow Fuction in IIFE ${name}`);
+    
+})("Aziz");// In This case We Can Use ; at the end 
+
+// Two IIFE are write with The help of semicolun at the end of code like uper case
+(// named IIFE
+  function chai(num1,num2) {
+  console.log(num1+num2)
+  }
+
+)(1,2);
+
 
 
 
