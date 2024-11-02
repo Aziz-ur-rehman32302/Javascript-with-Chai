@@ -313,7 +313,143 @@ console.log(arrowfun());
   }
 
 )(1,2);
+//==========================                                             =================
+//========================= How does javascript execute code + call stack ================
+//==========================                                             =================
+//read of register notes
+
+//==========================                          ===================================
+//========================= Control flow in javascript  =================================
+//==========================                          ====================================
+//   Purpose of study this topic to cotrol the execution of code
+//conditional statements
+
+const day = "friday"
+switch (day) {
+    case "monday":
+        console.log("monday");
+        break;
+    case "tuesday":
+        console.log("tuesday");
+        break;
+    case "wednesday":
+        console.log("wednesday");
+        break;
+    case "friday":
+        console.log("friday");
+        break;
+    case "saturaday":
+        console.log("saturday");
+        break;
+    default:
+        console.log("sunday");
+        
+        break;
+}
 
 
 
+// falsy values
+//  falsa, 0 , -0, bigInt 0n, "" , null, undefine, NAN  these valuse act as a false value
+// const userEmail = "a@aziz123.ai";//true
+const userEmail = "";//false
+if (userEmail) {
+    console.log("got values");
+    
+}else{
+    console.log("nothing get");
+    
+}
 
+
+// how to check Array is empty or not
+ const emptyArray = [];
+ if (emptyArray.length===0) {
+    console.log("arrsy is empty");
+    
+    
+ }
+
+
+// how to check object is empty or not
+ const emptyobj = {};
+ if (Object.keys(emptyobj).length===0) {
+    console.log("Object is empty");
+    
+    
+ }
+    // Nullish Coalescing Operator (??):- work on special>> null and undefined
+    let val1 ;
+//  val1=5 ?? 10;
+//  val1=  null ?? 10;
+//  val1=  undefined ?? 10;
+//  val1=  undefined ?? null ?? 20;
+ val1=  undefined ?? 10 ?? 20;
+ console.log(val1);
+
+
+ //     Ternary operator is a second way of writing if else
+//  condition ? true : false 
+ let age  = 20;
+//  age>=0  ? console.log("adult") : console.log("not adult");
+
+
+ let result1= age>=30  ? "adult" : "not adult"
+ console.log(result1);
+
+
+ 
+ //================                                              =======================
+//================  For loop with break and continue in javascript  =======================
+//=================                                              ========================
+ 
+//  for (let i = 0; i < 10; i++) {
+//     const element = i;
+//     console.log(`This is a value:-${element}`);  
+//  }
+
+//  for (let i = 0; i < 10; i++) {
+//     console.log(`Table Of :${i}`);
+    
+//     for (let j = 0; j < 10; j++) {
+        
+//         console.log( i + `*` +  j +`=` + i*j ); 
+//     }  
+//  }
+ 
+//  //        Continue   and   Breake
+
+// for (let index = 0; index <=20; index++) {
+//     if (index==10) {
+//         console.log(`10 is Detected`);
+//         break// use ti stop loop
+//     }
+//     console.log(index);
+    
+// }
+// for (let index = 0; index <=20; index++) {
+//     if (index==10) {
+//         console.log(`10 is Detected`);
+//         continue  // this keyword run loop after detection
+//     }
+//     console.log(index);
+    
+// }
+
+let myarray =["aziz" , "ahmad" , "Ali" , 12 ,true ,"pass"]
+// for (let ind = 0; ind < myarray.length; ind++) {
+//     // console.log(ind[0]);
+    
+//     const element = myarray[ind];
+//     console.log(element);  
+// } 
+let pointer=0;
+// while (pointer<=myarray.length) {
+//  console.log(myarray[pointer]);
+//     pointer = pointer + 1
+// }
+
+do {
+    console.log(myarray[pointer]);
+    pointer = pointer + 1
+} while (pointer<=myarray.length);
