@@ -453,3 +453,196 @@ do {
     console.log(myarray[pointer]);
     pointer = pointer + 1
 } while (pointer<=myarray.length);
+
+//============================                               =======================
+//===========================       High Order Array loops    =======================
+//============================                               ========================
+ //   For Of Loop
+ let greeting = "Aziz Ur Rehman "
+ for (const greet of greeting) {
+    if (greet===" ") {
+       console.log("space in string");
+       continue
+        
+        
+    }
+    console.log(`Letter of Greeting is : ${greet}`);
+    
+ }
+
+//=============================       MAPS IN JS      =======================
+// maps is a key value pair like an object but difference is that it takes only unique values and all values print in same order in which that can be written same valuse are not print again and again 
+let map_1 = new Map();
+map_1.set('pak', "Pakistan")
+map_1.set('in', "India")
+map_1.set('fr', "France")
+//console.log(map_1);
+//  use of loop on map object  perform same function on object is not work because object is not iteratable in this way like map
+for (const [point , value] of map_1) {//[point , value] use to destructure an Array
+    //console.log(point, ":-",value);
+    
+}
+
+let obj11 = {   /// Error :>  obj11 is not iterable
+    game1 : 'sanck',
+    game2: 'nyc'
+}
+
+// for (const [key , value] of obj11) {//for of loop to access values  of object
+//  console.log(key,value);  
+//}
+// for in loop
+for (const key in obj11) { /// for object  we use for in loop
+    console.log(`${key} is a shortcut of ${obj11[key]}`);
+    
+}
+
+let arr = ['a','b','c']
+for (const key in arr) {//for in loop
+    console.log(arr[key]);// this code access keys of arrays 
+    
+}
+// for each loop
+// arr.forEach(function(val){
+//     console.log(val); // access value of array  
+// })
+
+arr.forEach((val,index,arr)=>{  // use of arrow function
+ console.log(val,index,arr);
+ 
+})
+// another way of doing same process 
+function print (item , index , arr){ // for each takes three parameters
+    console.log(`This is a value:${item} This is a index of Array:${ index} List of complete Array: ${arr}`);   
+}
+arr.forEach(print)
+ 
+// //for of loop on array 
+// for (const key of arr) {
+//     console.log(key);//direct access keys from array
+    
+// }
+
+
+let arrObject = [//array with multiple objects and we can access with for each loop basically use in database at backend
+    {
+        username:"Aziz",
+        Email:"Aziz@gmail.com"
+    },
+    {
+        class:"5th",
+        rollNumber:123
+    },
+    {
+        unique_colour:"red"
+    }
+]
+arrObject.forEach( (item)=>{
+ console.log(item.unique_colour);
+ 
+} )
+//==============================                                  =========================
+//===========================   Filter map and reduce in javascript  ======================
+//==============================                                   ========================
+
+// for Each loop does not return values when store in variable
+
+// let arrstore=arr.forEach( (item)=>{
+//   console.log(item);
+  
+// } )
+// console.log(arrstore);// for Each loop does not return values when store in variable
+ const  arra= [1,2,3,4,5,6,7,8,9,10]
+//implicit return
+// let arrstore=arra.filter( (num)=> num>4 ) //auto return because scop is not used
+// console.log(arrstore);//filter return values when store in variable
+
+
+// let arrstore=arra.filter( (num)=> {//explicit return >> return keyword must be used because scope {} is used
+//     return num>4
+// } )
+// console.log(arrstore);//filter return values when store in variable
+
+
+//map function
+let arrstore=arra.map( (num)=> {//explicit return >> return keyword must be used because scope {} is used
+    return num+10
+} )
+console.log(arrstore);//map return values when store in variable
+
+
+// let amptyArray = [];
+// arrstore.forEach( (num)=>{
+//     // num >5;
+//     // console.log(num);
+//     if (num<4) {
+//         console.log(amptyArray.push(num));
+//     }
+    
+// } )
+
+let numbers = [1,2,3,4,5,6,7,8,9,10]
+
+                                //chaining  Method
+
+// the process in which we can use 2 or 3 methods at a same time
+
+let res=numbers
+            .map( (num)=>num*5 )
+            .map( (num)=>num/2 )
+            .filter((num)=> num>=20)
+
+console.log(res);
+
+const array1 = [1, 2, 3, 4];
+
+//         Reduce keyword
+
+// 0 + 1 + 2 + 3 + 4
+// const initialValue = 0;
+const sumWithInitial = array1.reduce(
+    
+    
+  (accumulator, currentValue) => accumulator + currentValue,
+  0//accumutator value
+
+);
+// const initialValue = 0;
+// const sumWithInitial = array1.reduce(
+//   (accumulator, currentValue) => accumulator + currentValue,
+//   initialValue,
+// );
+
+console.log(sumWithInitial);
+// Expected output: 10\
+
+
+
+//    ADD Price Of All Courses In Cards
+ let courses =[
+    {
+        courseTytle:"JS",
+        price:2999
+    },
+    {
+        courseTytle:"Data science",
+        price:3999
+    },
+    {
+        courseTytle:"HTML",
+        price:999
+    },
+    {
+        courseTytle:"C++",
+        price:1999
+    }
+ ]
+
+ let mytotal=courses.reduce( (accumulator,item)=>(accumulator+item.price),0 )
+console.log("Totale value of our Courses:-",mytotal);
+
+
+
+
+
+
