@@ -1,0 +1,94 @@
+<!-- //==============================                                  =============================
+//=============================  DOM introduction in javascript    ===========================
+//==============================                                  ============================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1 class="heading" id="title" >DOM Learning With Chai Our Code <span style="display: none;">Test Text</span></h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+    
+</body>
+</html>
+
+
+<!-- ==============START================how to use getElement By Id========START================== -->
+<!-- document.getElementById('title')
+<h1 class=​"heading" id=​"title">​DOM Learning With Chai Our Code​</h1>​
+document.getElementById('title').id
+'title'
+document.getElementById('title').class
+undefined
+document.getElementById('title').className
+'heading'
+document.getElementById('title').getAttribute(id)
+VM198:1 Uncaught ReferenceError: id is not defined
+    at <anonymous>:1:47
+(anonymous) @ VM198:1Understand this errorAI
+document.getElementById('title').getAttribute('id')
+'title'
+document.getElementById('title').getAttribute('class')
+'heading'
+document.getElementById('title').setAttribute('class','test')
+undefined
+document.getElementById('title').setAttribute('class','test heading')
+undefined
+document.getElementById('title')
+<h1 class=​"test heading" id=​"title">​DOM Learning With Chai Our Code​</h1>​
+const heading=document.getElementById('title')
+undefined
+heading
+<h1 class=​"test heading" id=​"title">​DOM Learning With Chai Our Code​</h1>​
+heading.style.backgroundColor="red"
+'red'
+heading.style.padding="15px"
+'15px'
+heading.style.padding="15px",text-Align='center'
+VM846:1 Uncaught SyntaxError: Invalid left-hand side in assignmentUnderstand this errorAI
+heading.style.padding="15px",textalign='center'
+'center'
+heading.style.borderRadius="15px"
+'15px'
+heading.style.borderRadius="150px"
+'150px'
+heading.style.margin="10px"
+'10px'
+heading.style.margin="100px"
+'100px'
+heading.style.textAlign='center'
+'center'
+heading.style.margin='0px auto'
+'0px auto' -->
+
+<!-- ==============END================how to use getElement By Id=================END========= -->
+
+
+<!-- ====================== HOW TO GET CONTENT OF ELEMENT OR NODE=============================== -->
+ <!-- (01) heading.textContent show all content that is written in even hide text will be show in it that is hide with css{not support html tags} -->
+ <!-- (02) heading.innerTextshow only that text that can be visible in tags{not support html tags} -->
+ <!-- (03) heading.innerHTMLshow HTML that is writte in it like>>{not support html tags}>DOM Learning With Chai Our Code <span style="display: none;">Test Text</span> -->
+
+<!-- =======================     QuerySelector All   =============================== -->
+ <!-- nodeList is not Equal to Array But Some Propertises are samiler to Array -->
+  <!-- let holder= document.queryselectorAll("li") -->
+<!-- holder[0].style.color='red'   >>define index-->
+
+
+
