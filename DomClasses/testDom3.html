@@ -15,17 +15,63 @@
     </style>
 </head>
 <body class="bg-black">
-    <div>
+    <!-- <div>
         <h1 class="heading" id="title" >DOM Learning With Chai Our Code <span style="display: none;">Test Text</span></h1>
         <p>Lorem ipsum dolor sit amet.</p>
     </div>
-    <ul>
-        <li>one</li>
-        <li>two</li>
-        <li>three</li>
-    </ul>
+    <ul class="list">
+        <li class = "mytempitem ">one</li>
+        <li class = "mytempitem ">two</li>
+        <li class = "mytempitem ">three</li>
+    </ul> -->
+    <div class="parent" id="father">
+        <div class="days">Monday</div>
+        <div class="days">Tuesday</div>
+        <div class="days">Wednesday</div>
+        <div class="days">Thirsday</div>
+    </div>
     
 </body>
+<script>
+    // let getparenr=document.getElementsByClassName('.parent')
+    // console.log(getparenr);
+    // let father=document.getElementById("#father")
+    // console.log(father);
+    //  let father = document.querySelector("#father")
+    // console.log(father);
+    // console.log(father.children);//move parent to child
+    // console.log(father.firstElementChild);
+    // console.log(father.lastElementChild);
+    // console.log(father.children[0]);
+    // console.log(father.children[0].innerHTML);
+    // console.log(father.children[0].innerText);
+    // console.log(father.children[0].textContent);
+    // console.log(father.children[0].textContent="Aziz Ur Rehman");
+     let parent =document.querySelector('.parent')
+    console.log(parent);
+    // console.log(parent.children);
+    
+   // let myconvertedArray = Array.from(parent.children)
+    //console.log(myconvertedArray);
+    //forEach loop
+    // myconvertedArray.forEach( (l)=>{
+    //     console.log(l.innerText);
+        
+    // } )
+    //Move Child To Parent or tiversing
+    let one = document.querySelector('.days')
+    console.log(one);
+    console.log(one.nextElementSibling);
+    console.log(one.parentElement);
+
+    //   NOde List  nodelist(9) in parent we write only 4 node but show 9 nodes becasue in Data Structure all tasks perform with tree structure new line or end line or enter also show a node
+    console.log("ChildNodes:>",parent.childNodes);
+    
+    
+
+
+
+</script>
 </html>
 
 
@@ -89,6 +135,20 @@ heading.style.margin='0px auto'
  <!-- nodeList is not Equal to Array But Some Propertises are samiler to Array -->
   <!-- let holder= document.queryselectorAll("li") -->
 <!-- holder[0].style.color='red'   >>define index-->
+
+
+
+<!-- //========================                                      ==============================// -->
+<!-- //=======================    How to create a new element in DOM    ========================// -->
+<!-- //========================                                      =========================//   -->
+
+
+
+
+
+
+
+
 
 
 
