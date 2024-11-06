@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Element With DOM</title>
+</head>
+<body>
+
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    
+</body>
+<script>
+    let div=document.createElement('div')
+    console.log(div);
+    div.className="main"
+    div.id=Math.round(Math.random()*10+1)
+    div.setAttribute("Title","Element Creared")
+    div.style.backgroundColor="#212121"
+    div.style.color="#ffff"
+    div.style.padding="12px"
+    // div.innerText="My First Element THat IS Created With Js "
+   let addtext= document.createTextNode("My First Element That Is Created With Js")
+    div.appendChild(addtext)
+   document.body.appendChild(div)
+
+   function addlanguage(langName){
+    let li = document.createElement('li');
+    // li.innerText=`${langName}`
+    li.innerText=(langName)
+    document.querySelector('.language').appendChild(li)
+    // li.appendChild(document.createTextNode(langName))
+    // document.querySelector('.language').appendChild(li)
+    
+   }
+   addlanguage(`Basics Method:-JavaScript`)
+   addlanguage(`Basics Method:-Java`)
+
+   function addlang(langName){
+    let li = document.createElement("li");
+    let node= document.createTextNode(langName);
+    li.appendChild(node)
+    document.querySelector(".language").appendChild(li)
+   }
+   addlang(`2nd Method:-PHP`)
+   addlang(`2nd Method:-C++`)
+
+
+   function addlang(langName){
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(langName));
+    document.querySelector(".language").appendChild(li)
+   }
+   addlang(`Best Method:-HTML`)
+   addlang(`Best Method:-CSS`)
+
+   //Edit Element In JS
+  let storeli= document.querySelector("li:nth-child(7)")
+   console.log(storeli);
+//    storeli.innerText="Aziz"
+     storeli.outerHTML=`<li>Aziz Ur Rehman replace with another Method</li>`
+  
+//    const newli=document.createElement("li")//replace complete li
+//    newli.textContent="Edited:-JAVA"
+//    storeli.replaceWith(newli)
+   
+
+
+//     REmove Element With Js
+let removelang = document.querySelector("li:nth-child(5)")
+   removelang.remove()// C++ REmove
+
+</script>
+</html>
