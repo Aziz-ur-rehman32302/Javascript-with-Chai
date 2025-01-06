@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Event Handlers Example</title>
+     <style>
+        /* Centering the content within the div */
+        #content {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+   <div id="content">
+
+<form action="" method="get" multiple id="demo"> 
+    
+    <table border="1" style="background-color:#9FC; text-align:center">
+
+<tr> <td colspan="2" align="center" style="background-color:#333; color:#FF0"> <h3>Student Registartion Form</h3></td></tr>
+<tr> <td> Name </td>
+<td> <input type="text" name="name" value="Ashad Baloch" required size="40" placeholder="Enter Your Name" /></td></tr>
+
+<tr> <td> Password</td>
+<td> <input type="password" name="psw"  size="40"/></td></tr>
+<tr> <td> Email</td>
+<td> <input type="email" name="email"  size="40"/></td></tr>
+
+<tr> <td> File </td><td> <input type="file" name="file"  /></td></tr>
+<tr><td colspan="2" align="right"> <button type="button" onclick='
+        document.getElementById("demo").innerHTML = "Your form has been submitted";
+        
+        // Create a new image element
+        var img = document.createElement("img");
+        img.src = ""; // Replace with the URL of your image
+        img.alt = "Description of the image"; 
+        img.width=100;
+        img.height=70;
+        // Add alternative text for accessibility
+
+        // Append the image to the form
+        document.getElementById("demo").appendChild(img);
+    '>Click Me!</button></td></tr>
+</table>
+</form>
+    
+ </div>
+</body>
+</html>
+

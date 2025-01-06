@@ -18,14 +18,14 @@ let student ={
     Email: "abc213@gmail.com",
     num:1233,
 }
-console.log(student);
-console.log(student[mysym]);
-console.log(typeof student[mysym]);//object
-console.log(student["lname"]);//un this method we can  use  string in key value pair
-console.log(student.lname);
-console.log( student.Email);
-console.log( student["Email"]);//another method to access value in object
-console.log(typeof student.Email);
+// console.log(student);
+// console.log(student[mysym]);
+// console.log(typeof student[mysym]);//object
+// console.log(student["lname"]);//un this method we can  use  string in key value pair
+// console.log(student.lname);
+// console.log( student.Email);
+// console.log( student["Email"]);//another method to access value in object
+// console.log(typeof student.Email);
 //change value in object
 // console.log(student.Email="rehman229@gmail.com");
 // Object.freeze(student);
@@ -33,20 +33,20 @@ console.log(typeof student.Email);
 // console.log(student);
 //Function add in an object
  student.greeting =function(){
-    console.log("Hellow js user ");
+    // console.log("Hellow js user ");
 }
  student.greetingtwo =function(){
-    console.log(`Hellow js user,${this.lname}`);// use of backit (``) is called string interpulation
+    // console.log(`Hellow js user,${this.class}`);// use of backit (``) is called string interpulation
 }
-console.log(student.greeting());
-console.log(student.greetingtwo());
+// console.log(student.greeting());
+// console.log(student.greetingtwo());
 
 
 // object creation with singleton
 // let tinderuser = new Object()>>singleton object
 // console.log(tinderuser);//> {}
 let tinderuser = {}//?>> non-singleton object
-console.log(tinderuser);// same output like uppercase
+// console.log(tinderuser);// same output like uppercase
 //1st way to declear values in object
 tinderuser={
     Email:"abc123@gmail.com"
@@ -68,9 +68,9 @@ let regularuser = {
         }
     } 
 }
-console.log(regularuser);
+// console.log(regularuser);
 
-console.log(regularuser.notexit?.fullName);//>hint study in next lecture 
+// console.log(regularuser.notexit?.fullName);//>hint study in next lecture 
 // console.log(regularuser.fullName);
 // console.log(regularuser.fullName.user);
 
@@ -86,13 +86,15 @@ let obj2 ={
 // let obj3 ={obj1,obj2};
 // console.log(obj3);
 //++++++++++++ {} is use as a traget all values add in empty object and obj1,obj2 are sources 
-// const obj4 =Object.assign({},obj1,obj2)
+const obj4 =Object.assign({},obj1,obj2)
 // console.log(obj4);
 // console.log(obj1);
+// console.log(obj2);
 //separate operator
-// let obj5 = {...obj1,...obj2}
+let obj5 = {...obj1,...obj2}
 // console.log(obj5);
 // console.log(obj1);
+// console.log(obj2);
 //++++++++++++++++++++++++++++++++++++++++++
 // console.log("01:",tinderuser);
 // console.log(Object.keys(tinderuser));//datatype of keys is Array
@@ -108,9 +110,9 @@ let {name} = tinderuser;//we can directly access the name from tinderuser using 
 let {Email:msg} = tinderuser;//we can directly change Email with msg noww access with msg
 let msg1 = tinderuser.Email;//we can directly change Email with msg1 noww access with msg
 
-console.log(name);
-console.log(msg);
-console.log(msg1);
+// console.log(name);
+// console.log(msg);
+// console.log(msg1);
 //----------------------     JSON API intro        -------------------------------
 //API is somthing that perform some task for us 
 // values return from backend in XML structure that is very complex but values in JSON
@@ -169,20 +171,19 @@ function userloggin(Username){
     return `${Username} just loggin`
     // return 
 }    
-console.log(userloggin("usman"));
+// console.log(userloggin("usman"));
 
 
-// function userloggin(Username="Rehman"){ //this value is print when user cannot pass value
-//     if(!Username){//this block is not execute
-//         console.log("Plz Enter Username");
-//         return
-//     }
-//     return `${Username} just loggin`
-// }    
+function userloggin(Username="Rehman"){ //this value is print when user cannot pass value
+    if(!Username){//this block is not execute
+        console.log("Plz Enter Username");
+        return
+    }
+    return `${Username} just loggin`
+ }    
 // console.log(userloggin());
 // console.log(userloggin(null));
 // console.log(userloggin(""));
-// console.log(output);
 
 //=======================                                            ====================
 //====================== Functions with objects and array in javascript   =============
@@ -191,14 +192,14 @@ console.log(userloggin("usman"));
 function calculateprice(...num1){
     return(num1)
 }
-console.log(calculateprice(1,2,3,4,5));//this is rest operator ... collect all values into an arraythen we can add
+// console.log(calculateprice(1,2,3,4,5));//this is rest operator ... collect all values into an arraythen we can add
 //we can pass an object in a function
-// let student4 = {
-//     name:"Aziz",
-//     rollnumber:123
-// }
+let student4 = {
+    name:"Aziz",
+    rollnumber:123
+}
 function obj(anyobj){
-    console.log(`The Name ${anyobj.name} and Rollnumber is ${anyobj.rollnumber}`);
+    // console.log(`The Name ${anyobj.name} and Rollnumber is ${anyobj.rollnumber}`);
     
 }
 // obj(student4)
@@ -208,13 +209,33 @@ obj({//direct pass an object
 })
 
 //Array pass in an function
-// let myarray=[100,200,300,400];
+let myarray1=[100,200,300,400];
 
 function array(getarray){
-return(getarray[0]);
+return(getarray[3]);
 }
-console.log(array([100,200,300,400]));
-// console.log(array(myarray));
+// console.log(array([100,200,300,400]));
+// console.log(array(myarray1));
+
+//Array Related interview Questions
+//---------- 01 -----------
+console.log(Array(1,2));//output:>[ 1, 2 ]
+console.log(Array(2));// output:>[ <2 empty items> ] becaues we can pass only one integer their for show 2 empty items according to integer value that is passed
+console.log(Array(1));//[ <1 empty item> ]
+//--------- 02  -----------------
+const obj12 = {name:"Aziz"}
+const array12 = ['name']
+// let resutl =obj12[array12]
+obj[array12] = "Aziz_Mushtaq";
+console.log(obj12);
+
+const object = {name:'JS'}
+const object1 ={}
+
+object[object1] ='react js';
+console.log(object);
+// console.log(object.name)
+
 
 
 //====================                                      ================
@@ -250,10 +271,10 @@ function addone (num){
     return num +1
 }
 // NOW >>>>>>>
-// console.log(addtwo(5));//ReferenceError: Cannot access 'addtwo' before initialization
-// const addtwo = function(num){//because function is store in variable
-//     return num + 2
-// }
+//  console.log(addtwo(5));//ReferenceError: Cannot access 'addtwo' before initialization
+const addtwo = function(num){//because function is store in variable
+    return num + 2
+}
 //=====================                                     ====================
 //==================   THIS and arrow function in javascript   =================
 //=====================                                     ===================
@@ -264,19 +285,19 @@ let company = {
     empID:123,
     empPay:30000,
    empWork:function(){
-    console.log(`${this.emp} ,1st Employee in Company`);
-    console.log(this);
+    // console.log(`${this.emp} ,1st Employee in Company`);
+    // console.log(this);
     
     }
     
 }
-console.log(company.empWork());
-company.emp="Ali";
-console.log(company.empWork());
-Object.freeze(company);// lock changes in object
-company.emp="Ali Raza";
-console.log(company.empWork());
-console.log(this);
+// console.log(company.empWork());
+// company.emp="Ali";
+// console.log(company.empWork());
+// Object.freeze(company);// lock changes in object
+// company.emp="Ali Raza";
+// console.log(company.empWork());
+// console.log(this);
 
 //point globel object in browser is window
 //==============================    ARROW FUNCTION   ============================
@@ -307,12 +328,14 @@ console.log(arrowfun());
 })("Aziz");// In This case We Can Use ; at the end 
 
 // Two IIFE are write with The help of semicolun at the end of code like uper case
-(// named IIFE
+(// named IIFE and written in parathencies ( (parameter)=>{function Defination} )(arguments);
   function chai(num1,num2) {
   console.log(num1+num2)
   }
 
-)(1,2);
+)
+(1,2);
+
 //==========================                                             =================
 //========================= How does javascript execute code + call stack ================
 //==========================                                             =================
@@ -331,7 +354,7 @@ switch (day) {
         break;
     case "tuesday":
         console.log("tuesday");
-        break;
+        break;jch
     case "wednesday":
         console.log("wednesday");
         break;
