@@ -19,3 +19,27 @@ console.table([Name,Class,stdId,rollnumber,accountState])
 console.log(typeof 'aziz');
 console.log(typeof null);
 console.log(typeof undefined);
+//*********************     Datatype conversion confusion     ************************ */
+// as topic ko study kernayka ya mean ha ka hum kisi bhi data type ko change ker saktay hai apeni marzi ka mutabik jub zarorat ho gi
+///////////////////mmm   Numbers in js   ///////////////
+let score = 1
+let score_2 = '33abc'
+// let score_2 = null => this show 0 in result (agar hum n ko temperature sa compare keray ga to ya issue keray gi as leya ya mind ma rakhena lazim ha k backend sa kya value return ho rei ha)
+// let score_2 = true
+// let score_2 = undefined
+let scoreRes = Number(score_2)// this line convert string into number 
+console.log(typeof score_2);
+console.log(typeof scoreRes);
+console.log(scoreRes);// but converted line show the NaN in result
+
+let booleanres = Boolean(score)
+let stringres = String(score)
+console.log(stringres);
+console.log(booleanres);// its mean 1 in boolean is equal to true
+//1=>true,0=>false,
+// ""=> false,
+// "aziz"=> true
+console.log(typeof stringres);
+console.log(typeof booleanres);
+
+
