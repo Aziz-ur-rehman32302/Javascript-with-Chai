@@ -12,8 +12,8 @@ console.table([Name,Class,stdId,rollnumber,accountState])
 'use strict'// all code use as a newer version;
 //#####################  Data type in JS  ###############################################
 // Their are two type of data types in js 
-// (1):premative Data Type 
-// (2):non-premative Data Type 
+// (1):premative Data Type or Call By Values
+// (2):non-premative Data Type  or Reference Type DataType
 //(1)=>[number,bigint,string,boolean,null=>standalone value,undefine,symbol]
 //(2)=>[object, function]
 console.log(typeof 'aziz');
@@ -41,5 +41,21 @@ console.log(booleanres);// its mean 1 in boolean is equal to true
 // "aziz"=> true
 console.log(typeof stringres);
 console.log(typeof booleanres);
+
+//###############   Conversion in Javascript
+console.log("2" > 2);
+console.log("2" == 2);
+console.log(null > 0);
+console.log(null == 0);
+console.log(null >= 0);//this line contain conversion issue
+console.log(undefined ==0);
+//      Strick checking
+console.log("null" === 0);// conversion is not perform due to strick checking
+//      Symbol in JS
+const Id =  Symbol(123);
+const otherId = Symbol(123);
+console.table([Id,otherId]);
+console.log(Id==otherId);
+
 
 
