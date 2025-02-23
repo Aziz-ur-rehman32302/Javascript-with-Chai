@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Color Changer With JS</title>
+<style>
+    body{
+        background: #000000;
+        color: azure;
+    }
+    .nav{
+        border: 2px solid #ffcc003e;
+        background-color: #aa9b60;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 50px;
+        height: 90px;
+    }
+    .nav a {
+        color: azure;
+        background-color: #fecb00;
+        border-radius: 15px;
+        height: 45px;
+        width: 150px;
+        align-content: center;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: none;
+
+    }
+    h1{
+        font-size: 50px;
+        text-align: center;
+        background-color: aqua;
+        border-radius: 15px;
+    }
+    .main{
+        border: 2px solid pink;
+        background-color: #534921;
+        border-radius: 15px;
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+     .button{
+        height: 60px;
+        width: 60px;
+        border-radius: 100%;
+        align-content: center;
+        text-align: center;
+        cursor: pointer;
+
+    }
+    #grey{
+        background-color: gray;
+    }
+    #white{
+        background-color: white;
+    }
+    #blue{
+        background-color: blue;
+    }
+    #yellow{
+        background-color: yellow;
+    }
+    .resetDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .reset_btn{
+        background-color: #fecb00;
+        font-size: 40px;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+</style>
+</head>
+<body class="main_body">
+    <div class="nav">
+        <a target="_blank" href="https://github.com/Aziz-ur-rehman32302/simple.repo.github/tree/main/01-basics">Home</a>
+        <a target="_blank" href="https://www.youtube.com/watch?v=TIvZNQbJh98&ab_channel=YousafSalli">Youtube</a>
+    </div>
+    <h1>Color Scheme Switcher</h1>
+    <div class="main">
+        <span id="white" class="button"></span>
+        <span id="grey" class="button"></span>
+        <span id="blue" class="button"></span>
+        <span id="yellow" class="button"></span>
+    </div>
+    <div class="resetDiv">
+        <button class="reset_btn" id="black">Reset</button>
+    </div>
+</body>
+    <script>
+        const btn=document.querySelectorAll('.button')
+        
+        const body = document.querySelector('.main_body')
+        const reset_button = document.querySelector('.reset_btn')
+        
+        
+
+        btn.forEach( (button)=>{
+
+            button.addEventListener('click',(e)=>{
+            if (e.target.id ==='grey') {
+                body.style.backgroundColor=e.target.id
+            }
+            if (e.target.id ==='white') {
+                body.style.backgroundColor=e.target.id
+            }
+            if (e.target.id ==='yellow') {
+                body.style.backgroundColor=e.target.id
+            }
+            if (e.target.id ==='blue') {
+                body.style.backgroundColor=e.target.id
+            }
+        })
+        });
+
+        reset_button.addEventListener('click',(e)=>{
+            if (e.target.id === 'black') {
+                body.style.backgroundColor="black"
+            }
+        })
+        
+    </script>
+</html>

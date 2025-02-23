@@ -18,12 +18,12 @@
     <!-- <div>
         <h1 class="heading" id="title" >DOM Learning With Chai Our Code <span style="display: none;">Test Text</span></h1>
         <p>Lorem ipsum dolor sit amet.</p>
-    </div>
+    </div>-->
     <ul class="list">
         <li class = "mytempitem ">one</li>
         <li class = "mytempitem ">two</li>
         <li class = "mytempitem ">three</li>
-    </ul> -->
+    </ul> 
     <div class="parent" id="father">
         <div class="days">Monday</div>
         <div class="days">Tuesday</div>
@@ -31,8 +31,22 @@
         <div class="days">Thirsday</div>
     </div>
     <!-- //.gallery>(.image-$>img+h4) -->
+     <ul class="language">
+        <li>JavaScript</li>
+     </ul>
 </body>
 <script>
+   let selector= document.querySelector(".parent");
+   console.log(selector);
+   console.log(selector.children[1].innerHTML);
+   
+    // for (let i = 0; i < selector.children.length; i++) {  //Html Collection act like a Array Therefor Wecan Apply For Loop 
+    //     console.log(selector.children[i].innerText);
+    // }
+    // console.log(selector.firstElementChild)
+    // console.log(selector.firstElementChild)
+    // console.log(lists_3);
+    
     // let getparenr=document.getElementsByClassName('.parent')
     // console.log(getparenr);
     // let father=document.getElementById("#father")
@@ -47,8 +61,8 @@
     // console.log(father.children[0].innerText);
     // console.log(father.children[0].textContent);
     // console.log(father.children[0].textContent="Aziz Ur Rehman");
-     let parent =document.querySelector('.parent')
-    console.log(parent);
+    //  let parent =document.querySelector('.parent')
+    // console.log(parent);
     // console.log(parent.children);
     
    // let myconvertedArray = Array.from(parent.children)
@@ -58,15 +72,78 @@
     //     console.log(l.innerText);
         
     // } )
-    //Move Child To Parent or tiversing
-    let one = document.querySelector('.days')
-    console.log(one);
-    console.log(one.nextElementSibling);
-    console.log(one.parentElement);
+    //==================     Move Child To Parent or tiversing
+    // let one = document.querySelector('.days')
+    // console.log(one);
+    // console.log(one.nextElementSibling);
+    // console.log(one.parentElement);
 
     //   NOde List  nodelist(9) in parent we write only 4 node but show 9 nodes becasue in Data Structure all tasks perform with tree structure new line or end line or enter also show a node
-    console.log("ChildNodes:>",parent.childNodes);
+    // console.log("ChildNodes:>",parent.childNodes);
     
+    //================   Create Element With Dom       =====
+    const div =document.createElement("div")
+    console.log(div);
+    div.className="main"
+    div.id=Math.round(Math.random()*10+1)
+    div.setAttribute("Title","Eelment Created")// this method is use to set Custom Attribute
+    // div.setAttribute("name","Eelment Created")
+    // div.innerText="This Is a First Element That Is Created With The Help Of JavaScript"
+    let textNode = document.createTextNode("This Is a First Element That Is Created With The Help Of JavaScript")
+    // console.log(textNode);
+    div.appendChild(textNode)
+    document.body.appendChild(div)
+    
+    div.style.fontSize="50px"
+    div.style.borderRadius="15px"
+    div.style.margin="60px"
+    div.style.color="#fffff"
+    div.style.backgroundColor="orange"
+    div.style.textAlign="center"
+    div.style.padding="30px"
+    
+    const addLanguage=(langName)=>{
+        const newitem=document.createElement('li')
+            console.log(newitem);
+            newitem.className='2nd_Child'
+            let textNode=document.createTextNode(langName)
+            newitem.appendChild(textNode)
+            const selectorUl=document.querySelector(".language")
+            console.log(selectorUl);
+            selectorUl.appendChild(newitem)
+        
+        
+    }
+    addLanguage("PHP");
+    addLanguage("Aziz");
+    //  ============     Advance Approch But Same Work
+    const AddLangOpti = (AddLanguage)=>{
+       const li= document.createElement("li")
+       li.appendChild(document.createTextNode(AddLanguage))
+       document.querySelector(".language").appendChild(li)
+       
+    }
+    AddLangOpti("C++")
+    ///====================    Edit Elements With JS
+    const secondItem=document.querySelector("li:nth-child(2)")
+    const newitem=document.createElement("li")
+   newitem.textContent="mojo"
+   secondItem.replaceWith(newitem)
+        //==========================
+        // Anothrt Method To Change Or Edit Elements 
+        const firstItem=document.querySelector("li:nth-child(1)")
+        firstItem.outerHTML="<li>This Item Is Changed</li>"
+        //=====================================
+        // Remove Elements With JavaScript
+        
+        const lastItem=document.querySelector("li:last-child")
+        lastItem.remove()
+//===========================  Lets Start Projects
+    //============   Interview Question What is the outpit of this code 
+    let number = 0;
+    console.log(number);
+    console.log(number++);
+    console.log(++number);
     
 
 

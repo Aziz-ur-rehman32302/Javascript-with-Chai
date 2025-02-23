@@ -284,7 +284,7 @@ let array = [1,2,3,4,5]
 // console.log(typeof array);
 // console.log(array.length);
 
-// let newarray = array.join()//this method change array into string
+let newarray = array.join()//this method change array into string
 // console.log(newarray);
 // console.log(typeof newarray);//string
 // console.log(newarray.length);//string
@@ -331,20 +331,19 @@ let anotherArray = [1,2,3,[4,5,],6,[7,8,[9,8,7]]];
 let iArray = "Aziz"
 // console.log(Array.isArray(iArray));//checking of an variable is array or not
 // console.log(Array.isArray("Aziz"));
-// console.log(Array.from(iArray));
+console.log(Array.from(iArray));
 // ------------------------------------------//
 // Object conversion into Array 
-// let std_class = {
-//    Name:"Aziz",
-//    Roll_Number:"BSF2206410",
-//    marks:50
-// } 
+let std_class = {
+   Name:"Aziz",
+   Roll_Number:"BSF2206410",
+   marks:50
+} 
 // console.log( std_class);
 // console.log(typeof std_class);
 
 let obj_Array=Array.from(std_class);//interesting point study in further lecture
-// console.log(Array.from(obj_Array));//it cannot work because we cannot tell him to convert array of [keys or values]
-// console.log(Array.of(obj_Array));
+console.log(Array.of(obj_Array));
 let score1 =100;
 let score2 = 200;
 let score3 = 300;
