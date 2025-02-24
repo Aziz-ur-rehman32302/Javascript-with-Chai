@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3rd_Digital Clock</title>
+    <style>
+        body{
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            background-color: rgb(80, 68, 44);
+            height: 400px;
+            width: 400px;
+            margin:  150px auto;
+            border-radius: 20px;
+            box-shadow: 1px 1px 12px 1px #fff;
+        }
+        #center{
+            font-size: 40px;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            
+        }
+        #clock{
+            width: 50%;
+            background-color: orange;
+            box-shadow: 1px 1px 2px 4px #fff;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="center">
+            <div id="banner"><h2>Your Local Time</h2></div>
+            <div id="clock"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const clock = document.querySelector('#clock');
+   // important method for interview
+   //setinterval reload this method after one second 
+    setInterval( ()=>{
+        let myTime = new Date();
+        clock.innerHTML= myTime.toLocaleTimeString();
+    
+    },1000 )
+</script>
+</html>
