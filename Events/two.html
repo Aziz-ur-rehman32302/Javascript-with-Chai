@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync In JS</title>
+</head>
+<body>
+    <h1>Aziz-Ur-Rehman</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // 1st use case
+    // setTimeout(function() {
+    //     console.log('Aziz Ur Rehman');
+        
+    // },2000)
+    //====       2nd use case
+    // let sayName = function() {
+    //     console.log('Aziz Ur Rehman');
+    // }
+    // setTimeout(sayName,2000)
+
+    //==          setTime Interval
+    // let sayName = function() {
+    //         console.log('pakistan');
+    // }
+    // setInterval(sayName,2000)
+
+    //====     How to Stop SetTimeOut Working
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML= 'Ramadan Mubrak'
+    }
+    const changeNow=setTimeout(changeText,2000)
+            
+    document.querySelector('#stop').addEventListener('click',function(){
+      clearTimeout(changeNow)
+        console.log('Stopped');
+        
+   })
+
+    
+
+</script>
+</html>
