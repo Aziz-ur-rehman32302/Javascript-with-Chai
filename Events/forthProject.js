@@ -18,12 +18,6 @@ const startchangingColor = function(){
         
          },1000 )
     }
-
-    //===2nd method
-    const changeBG= function(){
-        document.body.style.backgroundColor=randomColor()
-    }
-   
     //  stop = setInterval( ()=>{
     //     document.body.style.backgroundColor=randomColor()
 
