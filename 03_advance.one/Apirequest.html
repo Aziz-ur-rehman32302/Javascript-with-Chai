@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    <!-- //Before the featch() method we can use a xml http Request but now a days most developers cannot use this method
+
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+<!-- Short Answer:
+🚀 JavaScript ek single-threaded language hai, jo non-blocking aur event-driven hai:
+✔️ Single-threaded – Ek waqt me sirf ek kaam karta hai.
+✔️ Non-blocking – Slow operations background me chalte hain, baaki code aage badhta hai.
+✔️ Event-driven – Jab koi event hota hai, tabhi kuch execute hota hai. -->
+
+<!-- Is wajah se JavaScript web development ke liye fast aur efficient hai! 🚀 -->
+
+
+<div class="requested-data">
+
+</div>
+<button id="btn">show Profile</button>
+    
+</body>
+<script>
+// fetch method se pehle, JavaScript me APIs ko call karne ke liye XMLHttpRequest (XHR) aur jQuery.ajax() use hota tha.
+// Manual setup karni padti thi (open(), onload, send()).
+// Complex error handling hoti thi.
+// =====    fetch() se pehle APIs ko XMLHttpRequest ya jQuery.ajax() se call kiya jata tha, jo complex aur verbose tha. fetch() ne is process ko simplify kar diya. 🚀
+// 1️⃣ XMLHttpRequest (Old Way - Complex & Verbose)
+// var xhr = new XMLHttpRequest();
+// xhr.open("GET", "https://api.example.com/data", true);
+// xhr.onload = function () {
+//     if (xhr.status === 200) {
+//         console.log(xhr.responseText);
+//     }
+// };
+
+// xhr.send();
+   
+    const requesturl = 'https://api.github.com/users/aziz-ur-rehman'
+
+// ==========================    🔹 Short Answer:
+// new XMLHttpRequest() likhne ka matlab hai XMLHttpRequest ka ek naya instance (object) create karna, jo AJAX requests handle karega. Agar new nahi likhenge toh error aa sakti hai. 🚀
+
+
+   const xhr  =   new XMLHttpRequest()
+    xhr.open('get', requesturl)
+
+//     🔹 Short Answer:
+// onload sirf jab request complete hoti hai tab trigger hota hai (simpler & recommended).
+// onreadystatechange har state change par trigger hota hai, aur readyState manually check karna padta hai. 🚀
+
+    xhr.onload=function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){//xhr.status === 200 ka matlab hai server ne request successfully process kar li aur response return kar diya. 🚀
+            //===================================================
+
+//             📌 responseText Kya Hai? (AJAX Response Handling)
+// Jab aap AJAX request (XMLHttpRequest) bhejte hain, toh server ek response return karta hai.
+// xhr.responseText ek property hai jo response ka raw text format me data store karti hai.
+
+//=============================================================
+
+
+        //const data  =    this.responseText;//this keyword is use to access the current context
+            const data  =   JSON.parse("Raw Response Text:",this.responseText);//this keyword is use to access the current context
+       console.log( data.followers);
+    // Agar API response string format me ho, toh usko object me convert karne ke liye JSON.parse(yourString) use karein.
+        // const objapi = JSON.parse(data)  
+        // console.log( objapi);
+        // console.log(typeof objapi); 
+        // console.log(objapi.followers);
+
+        console.log(data.avatar_url);
+
+        document.querySelector('#btn').addEventListener('click',function(){
+
+            const requested_data= document.querySelector('.requested-data').innerHTML=`
+             <img src='${data.avatar_url}' alt="Profile Picture" width="100"  >
+             <p>followers: ${data.followers}  </p>
+           `
+        })
+
+        
+            
+        }
+
+       
+
+
+    }
+    xhr.send();
+    
+// AJAX (Asynchronous JavaScript and XML) Kya Hai?
+// AJAX ek technique hai jo web pages ko reload kiye bina server se data fetch karne ya bhejne ke liye use hoti hai.
+
+// Key Points:
+// ✅ Asynchronous – Page ko reload kiye bina background me request send/receive hoti hai.
+// ✅ JavaScript + XML/JSON – Pehle XML use hota tha, ab mostly JSON use hota hai.
+// ✅ Faster & Dynamic – Page bina refresh kiye update ho jata hai.
+
+// Example (Using fetch - Modern AJAX)
+
+// fetch("https://api.example.com/data")
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.error(error));
+// (Server se data aayega, aur bina page reload kiye console me show hoga.)
+
+// Short Answer:
+// AJAX ek technique hai jo web pages ko bina reload kiye server se data fetch/submit karne ki facility deti hai. 🚀
+
+//================================================================================================================================
+// JSON (JavaScript Object Notation) Kya Hai?
+// JSON ek lightweight data format hai jo data store aur exchange karne ke liye use hota hai. Yeh JavaScript objects jaisa hota hai, lekin string format me hota hai.
+
+// ===============      JSON Ki Key Features:
+// ✅ Lightweight – Simple text format hai, jo fast process hota hai.
+// ✅ Human & Machine Readable – Asani se samjha aur parse kiya ja sakta hai.
+// ✅ Key-Value Pairs – Data structured form me hota hai.
+// ✅ Language-Independent – Sirf JavaScript nahi, balki Python, Java, PHP, aur dusre languages bhi isko support karti hain.
+
+// =================    JSON Syntax Example:
+
+// {
+//   "name": "Aziz",
+//   "age": 25,
+//   "city": "Lahore",
+//   "skills": ["JavaScript", "React", "Node.js"],
+//   "isDeveloper": true
+// }
+// =======                 Rules:
+
+// Keys hamesha double quotes ("") me hoti hain.
+// Values string, number, boolean, array, ya object ho sakti hain.
+// No Comments Allowed (JavaScript ke object me comments ho sakte hain, JSON me nahi).
+// JavaScript me JSON ka istemal:
+// ✅ JSON String ko Object me Convert Karna (JSON.parse())
+// js
+// Copy
+// Edit
+// let jsonString = '{"name": "Aziz", "age": 25}';
+// let obj = JSON.parse(jsonString);
+// console.log(obj.name); // Output: Aziz
+// ✅ Object ko JSON String me Convert Karna (JSON.stringify())
+
+// let person = { name: "Aziz", age: 25 };
+// let jsonString = JSON.stringify(person);
+// console.log(jsonString); // Output: {"name":"Aziz","age":25}
+// Short Answer:
+// JSON ek lightweight data format hai jo structured data ko store aur transfer karne ke liye use hota hai. JavaScript me JSON.parse() aur JSON.stringify() se isko object aur string ke beech convert kiya jata hai. 🚀
+
+//==================  console in javascript    
+// 📌 Kya console JavaScript ka part hai?
+// Haan, console JavaScript ka part hai, lekin wo JavaScript language ka core built-in feature nahi hai.
+// 👉 Ye ek browser-provided API hai jo JavaScript ke saath use hoti hai.
+
+// ✅ console Kya Hai?
+// console ek global object hai jo debugging aur logging ke liye use hota hai.
+// Ye browser ke Developer Tools ya Node.js environment me available hota hai.
+
+// JavaScript ka core engine (ECMAScript) isko define nahi karta, balki browsers (Chrome, Firefox, etc.) aur Node.js isko provide karte hain.
+// Short Answer:
+// console JavaScript ka core part nahi hai, balki browser aur Node.js ka feature hai jo debugging ke liye diya gaya hai.
+// JavaScript bina console ke bhi chal sakti hai, magar debugging ke liye console helpful hota hai. 🚀
+
+
+//=================================================================================
+
+// 📌 Sabse Fast JavaScript Engine Konsa Hai?
+// 🚀 Google Chrome ka V8 engine sabse fast aur powerful mana jata hai.
+// Ye Just-in-Time (JIT) Compilation use karta hai, jo JavaScript code ko machine code me convert karke execution fast banata hai.
+
+// ✅ V8 ka Use Kahan Hota Hai?
+
+// Google Chrome Browser
+// Node.js (Server-side JavaScript)
+// Deno (Secure JavaScript Runtime)
+// 🔹 Short Answer:
+// JavaScript ka koi ek core engine nahi hota, lekin sabse popular aur fast engine V8 hai jo Chrome aur Node.js me use hota hai. 🚀
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
