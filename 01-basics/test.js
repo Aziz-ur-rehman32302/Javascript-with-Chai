@@ -20,27 +20,103 @@ because of issue in a block scope and functional scop */
 
 //======================================Second Lecture======================================
 //=====================================Data Types In Js=====================================
+
+
+
+// Data types in javascript are divided into two categories
+// (1): Primitive Data Type
+// (2): Non-Primitive Data Type
+// Primitive Data Type: String, Number, Boolean, Null, Undefined, Symbol,BigInt(bohot bade integers ke liye (2^53 se bade numbers))
+// Non-Primitive Data Type: Object, Array, Function
+// Primitive Data Type: These are the basic data types that are immutable and stored in stack memory.
+// Non-Primitive Data Type: These are complex data types that can hold multiple values and are stored in heap memory.
+// |  Type     |  Example         |  Category      |
+// | --------- | ----------------- | ------------- |
+// | String    | `"hello"`         | Primitive     |
+// | Number    | `123`             | Primitive     |
+// | Boolean   | `true` / `false`  | Primitive     |
+// | Null      | `null`            | Primitive     |
+// | Undefined | `undefined`       | Primitive     |
+// | Symbol    | `Symbol("id")`    | Primitive     |
+// | BigInt    | `123456789n`      | Primitive     |
+// | Object    | `{ name: "Ali" }` | Non-Primitive |
+// | Array     | `[1, 2, 3]`       | Non-Primitive |
+// | Function  | `function() {}`   | Non-Primitive |
+
 /*to save the old code of javascript we use "USE STRICT" SO that all js code treat as a newer js */
 //Read Data Type in Details from Notes
 //"use strict";//leatest version of code in js
 // console.log(typeof "aziz");
 // console.log(typeof 123);
 // console.log(typeof true);
-// console.log(typeof null);
+// console.log(typeof null);//null is a object in js(interview question)
+// console.log(typeof Symbol("aziz"));//symbol is a new data type in js
 // console.log(typeof undefined);
 // console.log(typeof age);
 // console.log("aziz");
+// =========================================================================================
+//====================================Third Lecture==========================================
+//==============================   Datatype conversion confusion   ========================
+let myFName= "Aziz";
+let myAge = 20;
+let num1 = String(myAge);//convert number into string
+let num2 = Number(myFName);//convert string into number
+let myIsStudent = 1;
+let myIsStudent2 = Boolean(myIsStudent);//convert number into boolean
+// console.log(typeof num1);
+// console.log(num1);
+// console.log(typeof num2); 
+// console.log(num2);//NaN (Not a Number) because "Aziz" cannot be converted to a number
+// console.log(typeof myIsStudent); 
+// console.log(myIsStudent2);
+// console.log(num1 + myFName); // "20Aziz" (string concatenation)
+// console.log(num2 + myFName); // NaN (Not a Number) because num2 is NaN
+// ===============================================================================
+//====================================Fourth Lecture=========================================
+//=====================  Why string to number conversion is confusing   ====================
+// console.log("20" + 10 + 2); // "20102" (string concatenation)string is first therefor all conversion is based on string concatenation
+// console.log(5 + 10 + "2"); // "152" (string concatenation)number is first therefor all conversion is based on number concatenation
+
+// prefix and postfix increment and decrement operators
+let a = 10;
+
+// console.log("a=", a++); // Output: 10 (pehle print, phir increase)
+// console.log("a=",a);   // Output: 11
+
+let b = 10;
+
+// console.log("b=",  ++b); // Output: 11 (pehle increase, phir print)
+// console.log("b=", b);   // Output: 11
+// ===============================================================================
+
+//====================================Fifth Lecture=========================================
+// | Value / Example         | Expression                     | `typeof` Result          |
+// | ----------------------- | ------------------------------ | ------------------------ |
+// | `"Hello"`               | `typeof "Hello"`               | `"string"`               |
+// | `123`                   | `typeof 123`                   | `"number"`               |
+// | `true`                  | `typeof true`                  | `"boolean"`              |
+// | `undefined`             | `typeof undefined`             | `"undefined"`            |
+// | `null`                  | `typeof null`                  | `"object"` ✅ (bug in JS) |
+// | `{ name: "Ali" }`       | `typeof { name: "Ali" }`       | `"object"`               |
+// | `[1, 2, 3]`             | `typeof [1, 2, 3]`             | `"object"`               |
+// | `function() {}`         | `typeof function() {}`         | `"function"`             |
+// | `Symbol("id")`          | `typeof Symbol("id")`          | `"symbol"`               |
+// | `12345678901234567890n` | `typeof 12345678901234567890n` | `"bigint"`               |
 
 
-//                          TYPES OF MEMORY
 
-//++++++++++++++  Stack and Heap memory in javascript  +++++++++++
+//==============================   TYPES OF MEMORY   =========================
 
-// (1):STACK MEMORY:-In primitive datatype stack memory is used. when we use stack memory then copy of variable is recieved that can be declear
-
-// (2):HEAP MEMORY:-In Non-primitive datatype heap memory is used and when an object or variable declear in heap then we can access referance of orginal value and in heap memory orginal value is change
-
-// EXAMPLE OF STACK
+// In JavaScript, memory is divided into two main types: Stack Memory and Heap Memory.
+// 1. Stack Memory: This is used for storing primitive data types (like numbers, strings, booleans, etc.).
+//    - It follows a Last In First Out (LIFO) structure.
+//    - When a variable is declared, a copy of its value is stored in stack memory.
+//    - Stack memory is faster and has a fixed size.
+// 2. Heap Memory: This is used for storing non-primitive data types (like objects, arrays, functions, etc.).
+//    - It allows for dynamic memory allocation.
+//    - When an object or variable is declared in heap memory, a reference to the original value is stored.
+//    - Heap memory is slower and has a variable size.
+// Example of Stack Memory
 let myFirstName = "aziz"; 
 let myName = myFirstName;
 myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
@@ -61,8 +137,8 @@ myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
  obj.name="Aziz-Ur-Rehman";//in heap orignal value is changed when change occur in referance 
 
 //    console.log(muobj.rollnumber);
-//  console.log(muobj);
-//  console.log(obj);
+//  console.log("changes in orignal object:",muobj);
+//  console.log("referance of orignal object",obj);
  
 
  //++++++++++++++++++++++++++++  Strings in Javascript  ++++++++++++++++++++++++++++++
