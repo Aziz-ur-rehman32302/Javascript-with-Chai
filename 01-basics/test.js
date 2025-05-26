@@ -183,7 +183,7 @@ myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
 // console.log(str.trim());// remove space from start and end of string
 // (7):- slice Method or function
 
-// console.log(str.substring(10,14));// print or return start index to end index
+// console.log(str.substring(10,13));// print or return start index to end index
 // console.log(str.slice(10,13));// same work as a substring but it takes negative values
 // console.log(str.slice(6,-2));
 // (7):- Replace Method or function
@@ -199,14 +199,14 @@ myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
 // (10):- concat Method or function
 let name = "Aziz";
 let marks = '103'
-// let concat = name.concat(marks);
-// console.log(concat);
-// console.log(name.concat(":marks:").concat(marks));
+// let concat = name.concat(marks);//th
+// console.log(concat);//th
+// console.log(name.concat(":marks:").concat(marks));//th
 
 
 
 //  How to declear string With new Method with the help new keyword
-let str_1 = new String('Rehman') //('Rehman') is a know as constructor
+let str_1 = new String('Rehman') //('Rehman') is a know as constructor 
 // console.log(str_1);
 // console.log(str.__proto__);
 
@@ -216,24 +216,31 @@ let str_1 = new String('Rehman') //('Rehman') is a know as constructor
 //========================           Number                       ================================
 let score = 123.426;
 let num = new Number(200);// object with new keyword
+let num12 = 300; // primitive data type
 // console.log(score);
 // console.log(typeof score);
 // console.log(num);
 // console.log(typeof num);
+// console.log(num12);
+// console.log(typeof num12);
 //          Number properties and Method
 //(01):- toString method
-// console.log(num.toString());
+// console.log(typeof num.toUpperCase);//undefined because toUpperCase is not a method of number
+// console.log(num.toString().toUpperCase());// this method convert number into string and then we can use string method
+
 // console.log(typeof num);
-// console.log(score.toString());
+// console.log(num12.toString().length);
+// console.log(typeof num12);
+// console.log(score.toString().length);
 // console.log(typeof score);
 
 //  console.log(num.toString().length);// .length is a property of string
 // (02):- toFixed method
 
-// console.log(num.toFixed(1));//this method show that number after floating point that is passed in constructor 
+// console.log(num.toFixed(3));//this method show that number after floating point that is passed in constructor 
 // console.log(score.toFixed(1));
 //(03):- toPrecision method 
-// console.log(score.toPrecision(4)); // it return only that values passed in constructor
+// console.log(score.toPrecision(3)); // it return only that values passed in constructor 
 //(04):- toLocaleString method 
 let lNum = 1234456;
 // console.log(lNum.toLocaleString('en-IN')); //it help in readabiliy of large value 
@@ -244,6 +251,7 @@ const y = Number.MAX_VALUE;
 const z = Number.MIN_VALUE;
 // console.log(x);
 // console.log(y);
+// console.log(y.toString().length);
 // console.log(z);
 
 //========================                                  ===============================
@@ -253,7 +261,7 @@ const z = Number.MIN_VALUE;
 // console.log(Math);
 // console.log(typeof Math);//object
 // console.log(Math.abs(-4)); // this convert - sign into + sign
-// console.log(Math.round(4.467));//perform only round of operation
+// console.log(Math.round(4.567));//perform only round of operation
 // console.log(Math.ceil(8.38576465));// it takes upper/higher value
 // console.log(Math.ceil(5.38576465));
 // console.log(Math.floor(8.38576465));//it takes lower value
@@ -283,10 +291,23 @@ const z = Number.MIN_VALUE;
 //========================                                  ===============================
 //=======================         Datas in Javascript        ===============================
 //========================                                  ================================
-let yourData = Date(2023 ,0,23 , 5,6)
-// let yourData2 = new Date(2023 ,0,23 , 5,6)
+let myDate = new Date();//this is a constructor of date
+// console.log(myDate);//2024-10-30T06:23:57.059Z
+// console.log(typeof myDate);//object
+// console.log(myDate.toString());//Mon May 26 2025 10:01:03 GMT+0500 (Pakistan Standard Time)
+// console.log(myDate.toJSON());//2025-05-26T05:01:03.000Z
+// console.log(myDate.toDateString());//Mon May 26 2025
+// console.log(myDate.toISOString())//same output like toJSON  
+// console.log(myDate.toLocaleString());//5/26/2025, 10:01:03 AM
+
+
+
+
+
+let yourData = Date()
+let yourData2 = new Date(2023 ,0,23 , 5,6)
 //  console.log( yourData);
-//  console.log( yourData2);
+//  console.log( yourData2.toLocaleString());
 //  console.log(typeof yourData);// string
 //  const myData = new Date()//declear an object with new keyword
 //  console.log("TODay DATE",myData);// 2024-10-30T06:23:57.059Z
@@ -300,7 +321,7 @@ let yourData = Date(2023 ,0,23 , 5,6)
 //   console.log(myData.toJSON());//2024-10-25T11:44:53.492Z
 
 //   How to declear specific data
-   // let takeData = new  Date(2023 ,0,23)
+   let takeData = new  Date(2023 ,0,23)
 //   let takeData = new  Date(2023 ,0,23 , 5,6)//1/23/2023, 5:06:00 AM
 //   let takeData = new  Date("12-01-2023")
 //  console.log("own date",takeData);
@@ -319,7 +340,7 @@ let yourData = Date(2023 ,0,23 , 5,6)
 ///////////////////////////////////////////////
 // to check special part of data
 // let checkDate = new Date();
-// let checkDate = Date.now();
+let checkDate = Date.now();
 // console.log("checkDate",checkDate);
 // console.log(checkDate.getDate());
 // console.log(checkDate.getMonth());
@@ -328,29 +349,35 @@ let yourData = Date(2023 ,0,23 , 5,6)
 // console.log(checkDate.getSeconds());
 
 ///////////////////////// Most imp Concept
-// let final = checkDate.toLocaleString( {
-//    //  weekday:"long",
+
+// console.log(checkDate.toLocaleString('default',{
+//     weekday:"narrow",//narrow,short,long,full
+//     year:"numeric",//numeric,2-digit
+//     month:"narrow",//narrow,short,long,full
+//       day:"numeric",//numeric,2-digit
+//    // hour:"numeric",//numeric,2-digit
+//    // minute:"numeric",//numeric,2-digit
 //    //  timeStyle:"full",
 //    // calendar:"calendar",
 //    // dayPeriod:"narrow"
-// })
-// console.log(final);//Friday
+// }));//Friday
 
 //========================                                  ===============================
 //=======================         Array in Javascript        ===============================
 //========================                                  ================================
   
 let array = [1,2,3,4,5]
-// console.log(array);
+console.log(array);
 //            METHODS  IN ARRAY
 // array.unshift(6 , 7);
 // console.log(array);
 // array.shift();
+// console.log(array);
 // array.shift();
 // console.log(array);
 // array.push(6 , 7);
 // console.log(array);
-// array.pop();
+// // array.pop();
 // array.pop();
 // console.log(array);
 //   for question purpose methods
@@ -358,9 +385,9 @@ let array = [1,2,3,4,5]
 // console.log(array.indexOf(3));
 // // point
 // console.log(typeof array);
-// console.log(array.length);
+// console.log(array.join().length);
 
-let newarray = array.join()//this method change array into string
+// let newarray = array.join()//this method change array into string
 // console.log(newarray);
 // console.log(typeof newarray);//string
 // console.log(newarray.length);//string
@@ -395,19 +422,50 @@ const allStudent = firstArray.concat(secondArray)//concat  return a new array
 // console.log(...firstArray,...secondArray);//it is spreed operator{spreed method} mostly using this method
 // console.log(typeof firstArray);
 
-// let all_names=[...firstArray,...secondArray]
+// let all_names=[...firstArray,...secondArray]//spreed operator 
 // console.log(all_names);
 // console.log(typeof all_names);
 
 //Flat Method In Array
 let anotherArray = [1,2,3,[4,5,],6,[7,8,[9,8,7]]];
-// console.log(anotherArray.flat(1));// it change array intosingle array
+let real_anotherArray=anotherArray.flat(2);//it change array into single array
+// console.log(real_anotherArray);//[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7 ]
+
 //who to convert object ,string etc in array
 //we can use from keyword to convert into array
+// | Keyword / Method | Type          | Kya Karta Hai                                                      |
+// | ---------------- | ------------- | ------------------------------------------------------------------ |
+// | `join()`         | Method        | Array ko string mein convert karta hai, custom separator ke sath   |
+// | `Array.from()`   | Static Method | Array-like ya iterable object ko real array mein convert karta hai |
+// | `Array.of()`     | Static Method | Di hui values se ek naya array banata hai                          |
+// | `in`             | Keyword       | Indexes (keys) ko loop karta hai (array ya object ke liye)         |
+// | `for...of`       | Keyword       | Array (ya iterable) ke **values** ko loop karta hai                |
+
+
+
 let iArray = "Aziz"
 // console.log(Array.isArray(iArray));//checking of an variable is array or not
 // console.log(Array.isArray("Aziz"));
-console.log(Array.from(iArray));
+// console.log(typeof iArray);
+// console.log(Array.from(iArray));// 
+// console.log(Array.of(iArray));// 
+// console.log(typeof iArray);
+//
+// ----------------    in (looping over keys/indexes)     --------------------------//
+// let arr = ["x", "y", "z"];
+// for (let index in arr) {
+//   console.log(index);  // Output: 0, 1, 2
+// }
+// ------------------------------------------//
+// ----------------  for...of (looping over values)   --------------------------//
+
+// let arr1 = ["x", "y", "z"];
+// for (let value of arr) {
+//   console.log(value);  // Output: x, y, z
+// }
+
+
+
 // ------------------------------------------//
 // Object conversion into Array 
 let std_class = {
@@ -415,11 +473,25 @@ let std_class = {
    Roll_Number:"BSF2206410",
    marks:50
 } 
+
+// let obj_Array1 = Object.values(std_class);
+// console.log(obj_Array1); 
+// Output: ["Aziz", "BSF2206410", 50]
+
+// let obj_Array2 = Object.keys(std_class);
+// console.log(obj_Array2); 
+// Output: ["Name", "Roll_Number", "marks"]
+
+// let obj_Array3 = Object.entries(std_class);
+// console.log(obj_Array3);   
+
 // console.log( std_class);
 // console.log(typeof std_class);
 
-let obj_Array=Array.from(std_class);//interesting point study in further lecture
-console.log(Array.of(obj_Array));
+// let obj_Array=Array.from(std_class);//interesting point study in further lecture
+// console.log(obj_Array);
+
+// console.log(Array.of(obj_Array1));//convert object into nested array
 let score1 =100;
 let score2 = 200;
 let score3 = 300;
