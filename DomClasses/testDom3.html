@@ -37,12 +37,14 @@
 </body>
 <script>
    let selector= document.querySelector(".parent");
-   console.log(selector);
-   console.log(selector.children[1].innerHTML);
+//    console.log(selector);
+//    console.log(selector.children );
+//    console.log(selector.children[1] );
+//    console.log(selector.children[1].innerHTML);
    
-    // for (let i = 0; i < selector.children.length; i++) {  //Html Collection act like a Array Therefor Wecan Apply For Loop 
-    //     console.log(selector.children[i].innerText);
-    // }
+    for (let i = 0; i < selector.children.length; i++) {  //Html Collection act like a Array Therefor Wecan Apply For Loop 
+        console.log(selector.children[i].innerText);
+    }
     // console.log(selector.firstElementChild)
     // console.log(selector.firstElementChild)
     // console.log(lists_3);
@@ -61,14 +63,19 @@
     // console.log(father.children[0].innerText);
     // console.log(father.children[0].textContent);
     // console.log(father.children[0].textContent="Aziz Ur Rehman");
-    //  let parent =document.querySelector('.parent')
-    // console.log(parent);
-    // console.log(parent.children);
+     let parent =document.querySelector('.parent')
+    console.log(parent);
+    console.log(parent.children);
     
-   // let myconvertedArray = Array.from(parent.children)
-    //console.log(myconvertedArray);
+   let myconvertedArray = Array.from(parent.children)
+    console.log(myconvertedArray);
+    console.log(typeof myconvertedArray);
     //forEach loop
-    // myconvertedArray.forEach( (l)=>{
+    myconvertedArray.forEach( (l)=>{
+        console.log(l.innerText);
+        
+    } )
+    // myconvertedArray.map( (l)=>{
     //     console.log(l.innerText);
         
     // } )
@@ -87,35 +94,35 @@
     div.className="main"
     div.id=Math.round(Math.random()*10+1)
     div.setAttribute("Title","Eelment Created")// this method is use to set Custom Attribute
-    // div.setAttribute("name","Eelment Created")
+    div.setAttribute("name","Eelment Created")
     // div.innerText="This Is a First Element That Is Created With The Help Of JavaScript"
     let textNode = document.createTextNode("This Is a First Element That Is Created With The Help Of JavaScript")
-    // console.log(textNode);
+    console.log(textNode);
     div.appendChild(textNode)
     document.body.appendChild(div)
     
     div.style.fontSize="50px"
     div.style.borderRadius="15px"
-    div.style.margin="60px"
+    div.style.margini88="60px"
     div.style.color="#fffff"
     div.style.backgroundColor="orange"
     div.style.textAlign="center"
     div.style.padding="30px"
     
-    const addLanguage=(langName)=>{
-        const newitem=document.createElement('li')
-            console.log(newitem);
-            newitem.className='2nd_Child'
-            let textNode=document.createTextNode(langName)
-            newitem.appendChild(textNode)
-            const selectorUl=document.querySelector(".language")
-            console.log(selectorUl);
-            selectorUl.appendChild(newitem)
+    // const addLanguage=(langName)=>{
+    //     const newitem=document.createElement('li')
+    //         console.log(newitem);
+    //         newitem.className='2nd_Child'
+    //         let textNode=document.createTextNode(langName)
+    //         newitem.appendChild(textNode)
+    //         const selectorUl=document.querySelector(".language")
+    //         console.log(selectorUl);
+    //         selectorUl.appendChild(newitem)
         
         
-    }
-    addLanguage("PHP");
-    addLanguage("Aziz");
+    // }
+    // addLanguage("PHP");
+    // addLanguage("Aziz");
     //  ============     Advance Approch But Same Work
     const AddLangOpti = (AddLanguage)=>{
        const li= document.createElement("li")

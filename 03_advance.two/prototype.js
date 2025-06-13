@@ -6,17 +6,15 @@
 //===============            call . js 
 function setusername (username){
          this.username=username
-         console.log(
-            'called'
-         );
+         console.log('called');
          
      }
 
 
 
 function createusername(username,email,password){
-    //call pass the current execution context to another function
-    setusername.call(username)//call keyword is use to call another function inside a function
+    //call pass the current execution context  to another function
+    // setusername.call(username)//call keyword is use to call another function inside a function
     setusername.call(this,username)//this parameter in call is use to store the values of setusername 
     this.email = email
     this.password=password

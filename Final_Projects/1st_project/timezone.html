@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Zone Converter</title>
+    <link rel="stylesheet" href="timezone.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Different Countries Time Zone Converter</h1>
+    <div class="row">
+        <strong class="label">Current Time in Selected Country:</strong>
+        <div id="current-time" class="time-display"> Time displayed here </div>
+            <select id="country-select">
+                <option value="">Select a country</option>
+                <!-- Countries will be populated by JavaScript -->
+            </select>
+
+    </div>
+    <div class="row_2">
+            <strong class="label">Select Time:</strong>
+            <input type="time" id="time-input">
+            <strong class="label">Country:</strong>
+            <div id="country-display">Selected Country</div>
+        </div>
+    </div>
+
+    
+
+<script src="timezone.js"></script>
+
+</body>
+</html>

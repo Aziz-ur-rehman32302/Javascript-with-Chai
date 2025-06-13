@@ -53,8 +53,7 @@ console.log(output2);
 // Private aur public properties/methods define karne se hum data ko unauthorized access se protect kar sakte hain.
 // Example:
 // javascript
-// Copy
-// Edit
+
 // class Person {
 //   constructor(name, age) {
 //     this.name = name; // Public
@@ -73,8 +72,7 @@ console.log(output2);
 // Yeh concept unnecessary details ko hide karta hai aur sirf essential features dikhata hai.
 // Example:
 // javascript
-// Copy
-// Edit
+
 // class Car {
 //   constructor(model) {
 //     this.model = model;
@@ -91,8 +89,7 @@ console.log(output2);
 // Iska matlab ek class doosri class ke features inherit kar sakti hai.
 // Example:
 // javascript
-// Copy
-// Edit
+
 // class Animal {
 //   constructor(name) {
 //     this.name = name;
@@ -116,8 +113,7 @@ console.log(output2);
 // Ek hi function ya method alag-alag classes me different tarikon se behave kar sakta hai.
 // Example:
 // javascript
-// Copy
-// Edit
+
 // class Shape {
 //   draw() {
 //     console.log("Drawing a shape");

@@ -3,7 +3,7 @@
 const accountId = 1233
 let accountName = "Pakistan"
 var accountEmail = "svhk21@gmail.com"
-let accountState ;//udefined
+let accountState ;//undefined
 let accountStatus="0" ;
 /* var cannot use
 because of issue in a block scope and functional scop */
@@ -36,12 +36,18 @@ because of issue in a block scope and functional scop */
 
 //++++++++++++++  Stack and Heap memory in javascript  +++++++++++
 
-// (1):STACK MEMORY:-In primitive datatype stack memory is used. when we use stack memory then copy of variable is recieved that can be declear
+// (1):STACK MEMORY:-In primitive data type stack memory is used. when we use stack memory then copy of variable is recieved that can be declear
 
 // (2):HEAP MEMORY:-In Non-primitive datatype heap memory is used and when an object or variable declear in heap then we can access referance of orginal value and in heap memory orginal value is change
 
 // EXAMPLE OF STACK
-let myFirstName = "aziz"; 
+// let myFirstName = "aziz"; 
+// let myName = myFirstName;
+// myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
+// console.log(myName);
+// console.log(myFirstName);
+
+let myFirstName = " "; 
 let myName = myFirstName;
 myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
 // console.log(myName);
@@ -91,8 +97,8 @@ myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
                   // define the properties Method or function of string
                   
 
-     let str = "Aziz-Ur-Rehman"                  
-   //   let str = "Aziz-Ur--Rehman"                  
+     let str = "   Aziz-Ur-Rehman"                  
+   //   let str = "Aziz-Ur-Rehman"                  
 // (1):- length Method or function            
 // console.log(str.length);
 // (2):- indexof Method or function
@@ -113,7 +119,7 @@ myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
 // (7):- Replace Method or function
 // console.log(str.replace("r","l"));//replace r with l
 // (8:- include Method or function check the specific character or word in string
-// console.log(str.includes("Az"));//check in string is available or not
+// console.log(str.includes("z",'a','Az'));//check in string is available or not
 // console.log(str.includes("Ali"));
 // (9):- Split Method or function
  let std = "Aziz-Ur-Rehman"
@@ -124,7 +130,7 @@ myName = "Aziz Ur Rehman" //take copy then can not change in orignal value
 let name = "Aziz";
 let marks = '103'
 // let concat = name.concat(marks);
-// console.log(concat);
+// console.log(str.concat);
 // console.log(name.concat(":marks:").concat(marks));
 
 
@@ -141,6 +147,7 @@ let str_1 = new String('Rehman') //('Rehman') is a know as constructor
 let score = 123.426;
 let num = new Number(200);// object with new keyword
 // console.log(score);
+// console.log(score.length);//undefined
 // console.log(typeof score);
 // console.log(num);
 // console.log(typeof num);
@@ -152,6 +159,10 @@ let num = new Number(200);// object with new keyword
 // console.log(typeof score);
 
 //  console.log(num.toString().length);// .length is a property of string
+//  console.log(num.toString().length);
+//  console.log(score.toString().length);// .length is a property of string
+//  console.log(score.length);//undefined
+
 // (02):- toFixed method
 
 // console.log(num.toFixed(1));//this method show that number after floating point that is passed in constructor 
@@ -177,28 +188,28 @@ const z = Number.MIN_VALUE;
 // console.log(Math);
 // console.log(typeof Math);//object
 // console.log(Math.abs(-4)); // this convert - sign into + sign
-// console.log(Math.round(4.467));//perform only round of operation
+// console.log(Math.round(4.567));//perform only round of operation
 // console.log(Math.ceil(8.38576465));// it takes upper/higher value
-// console.log(Math.ceil(5.38576465));
+// console.log(Math.ceil( 5.58576465));
 // console.log(Math.floor(8.38576465));//it takes lower value
-// console.log(Math.floor(5.38576465));
+// console.log(Math.floor(5.58576465));
 // console.log(Math.sqrt(36));//provide value that give squar-root
 // console.log(Math.min(2,3,4,5,6,-322,1,-4,2));//provide minimum value
 // console.log(Math.max(2,3,4,5,6,-322,1,-4,2));//provide maximum value
 
 // imp concept  >>>>  this method is use when we take some rendom values according to requirement
-//  console.log(Math.random());
-//  console.log(Math.random()*10);
-//  console.log((Math.random()*10)+1);
+ console.log(Math.random());
+ console.log(Math.random()*10);
+ console.log((Math.random()*10)+1);
 //  console.log((Math.floor(Math.random()*10)+1));
-//  console.log((Math.ceil(Math.random()*10)+1));
-//  console.log((Math.floor(Math.random()*10)+1) + 10);
-//  console.log(Math.round((Math.random()*10)+1));
+ console.log((Math.ceil(Math.random()*10)+1));
+ console.log((Math.floor(Math.random()*10)+1) + 10);
+ console.log(Math.round((Math.random()*10)+1));
 
  let min = 10;
  let max = 20;
-//  console.log(Math.ceil((Math.random()*(max-min +1))+min));//takes max values
-//  console.log(Math.floor((Math.random()*(max-min +1))+min));//takes min values
+ console.log(Math.ceil((Math.random()*(max-min +1))+min));//takes max values
+ console.log(Math.floor((Math.random()*(max-min +1))+min));//takes min values
 
 
 //  console.log(Math.floor((Math.random()*(max-min)+1)+min));
@@ -209,7 +220,7 @@ const z = Number.MIN_VALUE;
 //========================                                  ================================
 let yourData = Date(2023 ,0,23 , 5,6)
 // let yourData2 = new Date(2023 ,0,23 , 5,6)
-//  console.log( yourData);
+ console.log( yourData);
 //  console.log( yourData2);
 //  console.log(typeof yourData);// string
 //  const myData = new Date()//declear an object with new keyword
@@ -290,16 +301,16 @@ let newarray = array.join()//this method change array into string
 // console.log(newarray.length);//string
 
 // Slice and splice method
-// console.log("A",array);
-// console.log("slice Method",array.slice(1,3));
-// console.log("A",array);// slice not change the orignal array last index range is  not include 
+console.log("A",array);
+console.log("slice Method",array.slice(1,3));
+console.log("A",array);// slice not change the orignal array last index range is  not include 
 
-// console.log("splice Method",array.splice(1,3));
-// console.log("B",array);//in splice end index is exclusive and orignal array is changed and range is  include
+console.log("splice Method",array.splice(1,3));
+console.log("B",array);//in splice end index is exclusive and orignal array is changed and range is  include
 // another function of splice it is use 
-// let arrayn1 = [1,2,3,4,5]
-// arrayn1.splice(1,3,101,102);//other method of splice
-// console.log(arrayn1);
+let arrayn1 = [1,2,3,4,5]
+arrayn1.splice(1,3,101,102);//other method of splice
+console.log(arrayn1);
 // console.log(typeof array);
 //   Concat and Spread Operator
 let firstArray = ["Aziz","Ali","Ahmad"]

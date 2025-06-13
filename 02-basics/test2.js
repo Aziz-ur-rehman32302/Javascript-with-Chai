@@ -624,13 +624,15 @@ map_1.set('pak', "Pakistan")
 map_1.set('in', "India")
 map_1.set('fr', "France")
 // console.log(map_1);
+// console.log( typeof map_1);
+
 //  use of loop on map object  perform same function on object is not work because object is not iteratable in this way like map
-for (const [keys , value] of map_1) {//[point , value] use to destructure an Array
+for ([keys , value] of map_1) {//[point , value] use to destructure an Array
     // console.log(keys);
     // console.log(value);
     
     
-    //console.log(keys, ":-",value);
+    // console.log(keys, ":-",value);
     
 }
 
@@ -639,35 +641,43 @@ let obj11 = {   /// Error :>  obj11 is not iterable
     game2: 'nyc'
 }
 // const objArray=(Object.entries(obj11));
+// const objArray=(Object.values(obj11));
+// const objArray=(Object.keys(obj11));
+const objArray=(Object.values(obj11));
+// console.log(objArray)
 // console.log(objArray.length)
 // const str_Array = objArray.join();
 // console.log(str_Array);
 
 
-// for (const element of objArray) {
-//     console.log(element);
+for (const element of objArray) {//for of loop to access values  of object
+    // console.log(element);
     
 //    const sprArray=element.join(element)
 //    console.log(sprArray);
    
     
-// }
+}
 
-// for (const [key , value] of obj11) {//for of loop to access values  of object
+// for (const [key , value] of obj11) {//
+// // TypeError: obj11 is not iterable
+// //  console.log(key,value);  
+// }
+//---------------                 for in loop
+
+for (const key  in obj11) { /// for object  we use for in loop
+    // console.log(key);
+    // console.log(obj11[key]);
+    
+    
+    // console.log(`${key} is a shortcut of ${obj11[key]}`);
+    
+}
+// for (const [key , value] in obj11) {
 //  console.log(key,value);  
 // }
-// for in loop
 
-// for (const key  in obj11) { /// for object  we use for in loop
-//     console.log(key);
-//     console.log(obj11[key]);
-    
-    
-//     console.log(`${key} is a shortcut of ${obj11[key]}`);
-    
-// }
-
-// let arr = ['a','b','c']
+let arr = ['a','b','c']
 // for (const key in arr) {//for in loop
 // console.log(key);
 
@@ -675,15 +685,15 @@ let obj11 = {   /// Error :>  obj11 is not iterable
     
 // }
 // for each loop
-const std_Array= ["Aziz","Ali","Usman"]
+// const std_Array= ["Aziz","Ali","Usman"]
 // std_Array.forEach( (item)=>{//CallBack Function Is Function That Has NO Name (allback function hasno name) 
 // console.log(item);
 
 // } )
 function printItem (item){
-    console.log(item);
+    // console.log(item);
 }
-std_Array.forEach(printItem)
+// std_Array.forEach(printItem)
 
 // arr.forEach(function(val){
 //     console.log(val); // access value of array  
@@ -695,7 +705,7 @@ std_Array.forEach(printItem)
 // })
 // another way of doing same process 
 function print (item , index , arr){ // for each takes three parameters
-    console.log(`This is a value:${item} This is a index of Array:${ index} List of complete Array: ${arr}`);   
+    // console.log(`This is a value:${item} This is a index of Array:${ index} List of complete Array: ${arr}`);   
 }
 // arr.forEach(print)
  
@@ -719,10 +729,13 @@ let arrObject = [//array with multiple objects and we can access with for each l
         unique_colour:"red"
     }
 ]
-arrObject.forEach( (item)=>{
-//  console.log(item.unique_colour);
+// arrObject.forEach( (item)=>{
+//  console.log(item);
+//  console.log(item["class"]);//access class from object
+// //  console.log('In This Object At result is found',item.class);
+// //  console.log(`At ${item , index , arr} index of array the value is ${item.class}`);
  
-} )
+// } )
 //==============================                                  =========================
 //===========================   Filter map and reduce in javascript  ======================
 //==============================                                   ========================
@@ -744,14 +757,14 @@ arrObject.forEach( (item)=>{
 //     return num>4
 // } )
 // console.log(arrstore);//filter return values when store in variable
-let arra2 =[];
- arra.forEach( (num) =>{
-    if(num>4){
-        arra2.push(num)
-        // console.log(arra2);
+// let arra2 =[];
+//  arra.forEach( (num) =>{
+//     if(num>4){
+//         arra2.push(num)
+//         console.log(arra2);
         
-    }
-} )
+//     }
+// } )
 // console.log(arra2);
  
 
@@ -759,7 +772,7 @@ let arra2 =[];
 let arrstore=arra.map( (num)=> {//explicit return >> return keyword must be used because scope {} is used
     return num+10
 } )
-console.log(arrstore);//map return values when store in variable
+// console.log(arrstore);//map return values when store in variable
 
 
 // let amptyArray = [];
@@ -783,14 +796,14 @@ let res=numbers
             .map( (num)=>num/2 )
             .filter((num)=> num>=20)
 
-console.log(res);
+// console.log(res);
 
 const array1 = [1, 2, 3, 4];
 
 //         Reduce Method or keyword
  // reducemathod is use when we can add the price  of different  cards
 // 0 + 1 + 2 + 3 + 4
-// const initialValue = 0;
+const initialValue = 0;
 const sumWithInitial = array1.reduce(
     
     

@@ -24,18 +24,20 @@
 //        \--> Rejected ❌ (reject)
 // ==========      ✅ Example: Basic Promise
 
-// let myPromise = new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//         let success = true; // Try changing this to false to test rejection
-//         if (success) {
-//             resolve("✅ Data Successfully Fetched!");
-//         } else {
-//             reject("❌ Error: Something Went Wrong!");
-//         }
-//     }, 2000);
-// });
+let myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let success = true; // Try changing this to false to test rejection
+        if (success) {
+            resolve("✅ Data Successfully Fetched!");
+        } else {
+            reject("❌ Error: Something Went Wrong!");
+        }
+    }, 2000);
+});
 
-// console.log("Start...");
+console.log("Start. 1 ..");
+console.log(myPromise);
+console.log("Start. 2 ..");
 
 // myPromise
 //     .then((message) => {
@@ -122,31 +124,31 @@
 //  }).finally(()=>console.log('the promise is either resolved or not')//this line of code is run by default
 //  )
 
-
+//2nd method of using promise is async await to handle the promise in a better way but we can use try catch to handle the error in a better way
 ///======      ✅✅✅  5th promise ✅✅✅
-//  const promisefive = new Promise( function(resolve, reject){
-//     let error = true;
-//     if (!error) {
-//         resolve({username:' Rehman',password:'123'}) 
-//     }else{
-//         reject('Error, something went wrong')
-//     }
-//  },1000)
-//  async function  consumrpromiseresponce (){
-    // const responce = await promisefive  // this line work with zero Error but we can use best method to resolve it
-    // console.log(responce);
+ const promisefive = new Promise( function(resolve, reject){
+    let error = true;
+    if (!error) {
+        resolve({username:' Rehman',password:'123'}) 
+    }else{
+        reject('Error, something went wrong')
+    }
+ },1000)
+ async function  consumrpromiseresponce (){
+   //  const responce = await promisefive  // this line work with zero Error but we can use best method to resolve it
+   //  console.log(responce);
 
-    //this is an other ;method to catch the error with efficient way 
-//     try {
-//         const responce = await promisefive
-//         console.log(responce);
+   //  this is an other ;method to catch the error with efficient way 
+    try {
+        const responce = await promisefive
+        console.log(responce);
         
-//     } catch (error) {
-//         console.log(error);
+    } catch (error) {
+        console.log(error);
         
-//     }
-//  }
-//  consumrpromiseresponce()
+    }
+ }
+ consumrpromiseresponce()
 
 
 //=======     fetch and try catch example 

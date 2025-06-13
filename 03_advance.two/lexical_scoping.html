@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Closure and lexical scoping</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    
+</body>
+<script>
+    //========================          Lexical scoping           =======================
+    //Lexical scoping ma hum nay ya note kiya k parents mai sa child koch bhi access ker saktay ha 
+    //liken parents apenay child sa koch bhi access ner ker sakay 
+    //ak function ma 2 simblings bhi ak doseray ki property ko access nei ker saktay 
+    // function outer (){
+    //     let user = 'aziz'
+    //     // console.log('parent: ',firstinner);//parent cannot access his child property
+        
+    //     function inner (){
+    //         let firstinner = 'firstinner';
+    //         console.log(user);
+            
+    //     }
+    //     function innertwo (){
+            
+    //         console.log(user);
+    //         console.log('innertwo: ',firstinner);//cimblings cannot access each other property
+            
+    //     }
+    //     inner();
+    //     innertwo();
+    // }
+    // outer();
+
+
+
+    //=========================           Closure                =========================
+
+    //Closure mean jub hum koi function ko return kertay hai to sarf wo wala function he  return nei hota
+    // / bilka humera pora function ka lixical scope return ho ta ha ya  uth ker jata ha see in  blow example
+    function makfun (){
+        const name = 'google'
+        function displayname (){
+            console.log(name);
+        }
+        // return displayname;
+        displayname();
+    }
+    makfun()
+</script>
+<script>
+    // Real time Example for Lexical scoping and Closure
+    function clickhendler (color){
+        return function(){//Closure ki waja sa ya pora function clickhendler return ho rea ha 
+        document.body.style.backgroundColor=`${color}` //Lexical scoping ki waja sa ya  wali color property access ho rei ha
+        }
+    }
+    document.getElementById('orange').onclick= clickhendler('orange')
+    document.getElementById('green').onclick= clickhendler('green')
+</script>
+</html>
