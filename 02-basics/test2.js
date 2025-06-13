@@ -5,20 +5,32 @@
 //(1):- literals> when we create an object with literals then it can not create singleten object
 //(2):- constructor <object.create constructor method> when we create an object with constructor it can be a singleton object
 
+// | Feature      | Singleton Object            | Constructor Function Object     |
+// | ------------ | --------------------------- | ------------------------------- |
+// | Object Count | Sirf 1                      | Multiple                        |
+// | Creation     | Direct `{}` se              | `function` + `new` keyword se   |
+// | Flexibility  | Low                         | High                            |
+// | Use Case     | Settings, config, constants | Students, products, users, etc. |
+// | Example      | `let obj = {}`              | `let obj = new MyFunc()`        |
+
+
 // Explane odject literals
 // interview question use of symbol use as a key in object  
-let mysym = Symbol("Khan2")//use of symbol datatype
-let mysec_symbol = Symbol("Aziz")
-let student ={
-    name:"Aziz",
-    [mysym]:"khan2",//symbol key in object 
-    [mysec_symbol] :"Symbol In Object" ,//output=>  [Symbol(Aziz)]: 'Symbol In Object' 
-    "lname":"Rehman",//we can not access lname With the help of . therfore we can use square notation to access lname in object 
+// let mysym = Symbol("Khan2")//use of symbol datatype
+// let mysec_symbol = Symbol("Aziz")
+// let student ={
+//     name:"Aziz",
+//     [mysym]:"khan2",//square brackets are use to represent a symbol key in object and its type of is equal to symbol
+//     [mysec_symbol] :"Symbol In Object" ,//output=>  [Symbol(Aziz)]: 'Symbol In Object' 
+//     "lname":"Rehman",//we can not access lname With the help of . therfore we can use square notation to access lname in object 
     
-    class : "1st year",
-    "Email": "abc213@gmail.com",
-    num:1233,
-}
+//     class : "1st year",
+//     "Email": "abc213@gmail.com",
+//     num:1233,
+// }
+//NOTE: there are two ways to access the values in object
+// 1st way is to use dot notation like student.name
+// 2nd way is to use square bracket notation like student["name"] and we use it to access the value of symbol in object
 // console.log(student);
 // console.log(student[mysec_symbol]);
 // console.log(student[mysym]);
@@ -30,48 +42,78 @@ let student ={
 // console.log(typeof student.Email);
 //change value in object
 // console.log(student.Email="rehman229@gmail.com");
+//--------------------------------------
 // Object.freeze(student);
 // console.log(student.Email="aziz229@gmail.com");
 // console.log(student);
 
 
 //====================Function add in an object
- student.greeting =function(){
-    // console.log("Hellow js user ");
-}
- student.greetingtwo =function(){
-    // console.log(`Hellow js user,${this.class}`);// use of backit (``) is called string interpulation
-}//this keyword is used to access the same referance point or from same object 
+//  student.greeting =function(){
+//     // console.log("Hellow js user ");
+// }
+//  student.greetingtwo =function(){
+//     // console.log(`Hellow js user,${this.class}`);// use of backit (``) is called string interpulation
+// }//this keyword is used to access the same referance point or from same object 
 // console.log(student.greeting());
 // console.log(student.greetingtwo());
 
-const person1 = {
-    name: "Jane Doe",
-    age: 28,
-    greet: function() {
-        console.log("Hello, my name is " + this.name);
-    }
-};
+// const person1 = {
+//     name: "Jane Doe",
+//     age: 28,
+//     greet: function() {
+//         console.log("Hello, my name is " + this.name);
+//     }
+// };
 //  console.log(person1.greet());
-const person = {
-    name: "Jane Doe",
-    age: 28,
+// const person = {
+//     name: "Jane Doe",
+//     age: 28,
     
-};
-person.greet= function() {
-    // console.log("Hello, my name is " + this.name);
-}
+// };
+// person.greet= function() {
+//     console.log("Hello, my name is " + this.name);
+//  }
 // console.log(person);
 
 // console.log(person.greet());
 
-// const obj = new object();
-// const person_1 = new person("Alice", 24);
-// const person2 = new person("Bob", 22);
-// console.log(person_1 , person2);
+let obj111 = {1: "a",2: "b"}
+let obj222 = {3: "c",4: "d"}
+// console.log(Object.assign({}, obj111, obj222));//{} is a target object where all values are added and obj111,obj222 are sources objects it helps us to store a any number of objects in this target object
+let obj333= {...obj111, ...obj222};//spread operator is used to merge objects in a new object
+// console.log(obj333);//{ '1': 'a', '2': 'b', '3': 'c', '4': 'd' } 
+//----------------------------  when values return from database -------------------------
+// let user = [
+//     {
+//         name: "Aziz",
+//         age: 24,
+//         Email: "aziz123@gmail.com"
+//     },
+//     {
+//         name: "Ali",
+//         age: 22,
+//         Email: "ali123@gmail.com"
+//     },
+//     {
+//         name: "Usman",
+//         age: 23,
+//         Email: "usman123@gmail.com"
+//     }
+// ]
+// console.log(user);//access all values of user
+// console.log(user[0].Email);//access Email of 0th index
+// console.log(user[1].name);//access name of 1st index
+//===========   IMP FOR NEXT LEVEL   =============
+//----------  when values return from object then it is called object destructuring
+// console.log(Object.keys(student));//keys of object
+// console.log(Object.values(student));//values of object
+// console.log(Object.entries(student));//entries of object in array form
+// console.log(Object.keys(student)[5]);//keys of object
+// to property is exist in object or not
+// console.log(student.hasOwnProperty("name"));//true
+// console.log(student.hasOwnProperty("notexist"));//false
 
-// person_1.greet();
-// person2.greet();
 //===============   Create a constructor function that specifies an object's properties and methods.
 // function Person(name, age) {
 //     this.name = name;
@@ -80,10 +122,13 @@ person.greet= function() {
 //         console.log("Hello, my name is " + this.name);
 //         console.log("Hello, my age is " + this.age);
 //     };
-// }
-// Use the new keyword to create instances of the object.
+//  }
+// // Use the new keyword to create instances of the object.
 // const person2 = new Person("Bob", 22);
+// console.log(person2);
+
 // person2.greet();
+
 // const person1 = new Person("Alice", 24);
 // person1.greet();
 
@@ -91,54 +136,77 @@ person.greet= function() {
  
 // let tinderuser = new Object()>>singleton object
 // console.log(tinderuser);//> {}
-let tinderuser = {}//?>> non-singleton object
+// let tinderuser = {}//?>> non-singleton object
 // console.log(tinderuser);// same output like uppercase
 //1st way to declear values in object
-tinderuser={
-    Email:"abc123@gmail.com"
-}
+// let tinderuser={
+//     Email:"abc123@gmail.com"
+// }
 
 //2nd way to declear values in object
-tinderuser.name="summy"
-tinderuser.id = 123
+// tinderuser.name="summy"
+// tinderuser.id = 123
 
 // console.log(tinderuser);
+// //------------------  Object destructure    -------------------
+// console.log(tinderuser.name);//>accessing value of object with dot notation
+// console.log(tinderuser["id"]);//>accessing value of object with square bracket notation
+// let {Email:mail} = tinderuser;//>object destructure with alias or new method
+// console.log(mail);//>accessing value of object with destructure
+
 
 // object within an object >nesting in object
-let regularuser = {
-    Email:"aziz123@gmail.com",
-    fullName:{
-        user:{
-            firstname:"Ali",
-            lastname:"Raza"
-        }
-    } 
-}
+// let regularuser = {
+//     Email:"aziz123@gmail.com",
+//     fullName:{
+//         user:{
+//             firstname:"Ali",
+//             lastname:"Raza"
+//         }
+//     } 
+// }
 // console.log(regularuser);
 
+
 // console.log(regularuser.notexit?.fullName);//>hint study in next lecture 
+// console.log(regularuser.notexit?.fullName);//>undefined
+//----------------------------------------------------------
+// console.log(user.address?.city);
+
+// Lekin address user ke andar hai hi nahi!
+
+// To JavaScript sochti hai:
+
+// "Hmm... mujhe address.city access karna hai...
+// Lekin address to hai hi nahi...
+// Agar main aise hi address.city karta to error deta!
+// Lekin tumne ?. lagaya hai — iska matlab hai:
+// ❓ "Agar address exist kare to hi aage jao."
+// ⚠️ Lekin wo exist nahi karta — to bas undefined de do, error nahi."
+
 // console.log(regularuser.fullName);
 // console.log(regularuser.fullName.user);
+// console.log(regularuser.fullName.user.firstname);//>accessing value of object within an object
 
 // how to marje object
-let obj1 ={
-    1:"a",
-    2:"b"
-}
-let obj2 ={
-    3:"c",
-    4:"d"
-}
+// let obj1 ={
+//     1:"a",
+//     2:"b"
+// }
+// let obj2 ={
+//     3:"c",
+//     4:"d"
+// }
 // let obj3 ={obj1,obj2};
 // console.log(obj3);
 //++++++++++++ {} is use as a traget all values add in empty object and obj1,obj2 are sources 
-const obj4 =Object.assign({},obj1,obj2)
+// const obj4 =Object.assign({},obj1,obj2)
 // const obj4 = object.assign(Target , Sources)
 // console.log(obj4);
 // console.log(obj1);
 // console.log(obj2);
 //separate operator
-let obj5 = {...obj1,...obj2}// same conept like array
+// let obj5 = {...obj1,...obj2}// same conept like array
 // console.log(obj5);
 // console.log(obj1);
 // console.log(obj2);
@@ -154,9 +222,9 @@ let obj5 = {...obj1,...obj2}// same conept like array
 //De-Structure mean git value from object
 // console.log(tinderuser);
 // console.log(tinderuser.name);
-let {name} = tinderuser;//we can directly access the name from tinderuser using this method
-let {Email:msg} = tinderuser;//we can directly change Email with msg noww access with msg
-let msg1 = tinderuser.Email;//we can directly change Email with msg1 noww access with msg
+// let {name} = tinderuser;//we can directly access the name from tinderuser using this method
+// let {Email:msg} = tinderuser;//we can directly change Email with msg noww access with msg
+// let msg1 = tinderuser.Email;//we can directly change Email with msg1 noww access with msg
 
 // console.log(name);
 // console.log(msg);
@@ -199,30 +267,33 @@ let msg1 = tinderuser.Email;//we can directly change Email with msg1 noww access
 //     // console.log(Username,' is logedIn');
 //     let result11= `${Username} is logedIn`;
 //     return result11;
-// }
-// const result11= userlogedin("Aziz")
-// console.log(result11);
+//  }
+// const result112= userlogedin("Aziz")
+// console.log(result112);
 
 // console.log(userlogedin("Aziz-Ur-Rehman"));
-// -----------------------
+// --------------------------------------------------------
 // const userlogin = function(Username){
 //     return`${Username} is logedIn`
 // }
 // console.log(userlogin("Aziz-Ur-Rehman"));
 
 //    An Other Concept
-function myfun(numbera,numberb){
-    //  let result = numbera+numberb;//1st method
-    //  return result;
-    return numbera+numberb;//second method
-    //when we can use return statement then we can store it in new variable like result
-}
-    let result = myfun(10,10);
-    // console.log("Result:",result)
+// function myfun(numbera,numberb){
+//     //  let result = numbera+numberb;//1st method
+//     //  return result;
+//     return numbera+numberb;//second method
+//     //when we can use return statement then we can store it in new variable like result
+// }
+    // console.log(myfun(10,10));//output:20
+
+    // let result = myfun(10,10);
+    // console.log("Result:",result);//output:Result: 20
+//==========================                                         ========================
 
 //  next method
 // function userloggin(Username){
-//     if(!Username){
+//     if(!Username){//if user does not pass value then this block is execute and ! means not if username is empty or null or undefined then this block is execute
 //         console.log("Plz Enter Username");
 //         return;
 //     }
@@ -232,31 +303,33 @@ function myfun(numbera,numberb){
 //     // }
     
 //     return `${Username} just loggin`
-//     // return 
 // }    
+// console.log(userloggin());
 // console.log(userloggin("Imran Khan"));
 
 
 // function userloggin(Username="Rehman"){ //this value is print when user cannot pass value
 //     if(!Username){//this block is not execute
 //         console.log("Plz Enter Username");
-//         return
+//         return//this return keyword is used to stop the function execution
 //     }
 //     return `${Username} just loggin`
 //  }    
 // console.log(userloggin());
 // console.log(userloggin(null));
 // console.log(userloggin(""));
+// console.log(userloggin("Aziz Khan"));
 
 //=====================   Pratice logic
- function catsulator(val1,val2,val3,...num){//in this case first 3 value assign to val1,val2,val3 
-    return(num)
- }
+//  function catsulator(val1,val2,val3,...num){//in this case first 3 value assign to val1,val2,val3 
+//     return(num)
+//     // return(val1,val2,val3,num)
+//  }
 //  function catsulator(...num){//rest operator is very important at that point
 //     return(num)
 //  }
-//  console.log(catsulator(200,300,400,600));
-const resultArray = catsulator(1,2,3,4,5,6,7,8,9);
+// //  console.log(catsulator(200,300,400,600));
+// const resultArray = catsulator(1,2,3,4,5,6,7,8,9);
 // resultArray
 // console.log(resultArray.length);// now we can access all index of an array and calculate all the prices of card
 
@@ -266,33 +339,35 @@ const resultArray = catsulator(1,2,3,4,5,6,7,8,9);
 //====================== Functions with objects and array in javascript   =============
 //=======================                                            ====================
 //when we calculate cards price in E-commerace website then build this type of logic
-function calculateprice(...num1){
-    return(num1)
-}
+// function calculateprice(...num1){
+//     return(num1)
+// }
 // console.log(calculateprice(1,2,3,4,5));//this is rest operator ... collect all values into an arraythen we can add
 //we can pass an object in a function
-let student4 = {
-    name:"Aziz",
-    rollnumber:123
-}
-function obj(anyobj){
-    // console.log(`The Name ${anyobj.name} and Rollnumber is ${anyobj.rollnumber}`);
+// let student4 = {
+//     name:"Aziz",
+//     rollnumber:123
+// }
+// function obj(anyobj){
+//     console.log(`The Name ${anyobj.name} and Rollnumber is ${anyobj.rollnumber}`);
     
-}
-// obj(student4)
-obj({//direct pass an object
-    name:"Aziz",
-    rollnumber:123
-})
+// }
+// obj(student4)//pass an object in a function
+// console.log(obj(student4));
+// obj({//direct pass an object
+//     name:"Aziz",
+//     rollnumber:123
+// })
 
 //Array pass in an function
 let myarray1=[100,200,300,400];
 
-function array(getarray){
-return(getarray[3]);// return values of 3rd index
-}
+// function passarray(getarray){
+// return(getarray);// return values of 3rd index
+// // return(getarray[3]);// return values of 3rd index
+// }
 // console.log(array([100,200,300,400]));
-// console.log(array(myarray1));
+// console.log(passarray(myarray1));
 
 //Array Related interview Questions
 //---------- 01 -----------
@@ -330,18 +405,20 @@ if(true){
 // console.log(b);  // c is define  due to globel scope
 // console.log(c); // c is not defined
 
-// Next Level of scope in js
-// function one(){
-//     const Username = "Aziz";
-//     function two (){
-//         const website = "youtube";
-//         console.log(Username);
+// ================         Next Level of scope in js    ====================
+function one(){
+    const Username = "Aziz";
+    function two (){
+        const website = "youtube";
+        console.log(Username);
         
-//     }
-//     // console.log(website);
-//     two();
-// }
+    }
+    console.log(website);
+    two();
+ }
 // one();
+// console.log(one());
+
 //++++++++++++++++++++++++++++ next level Interesting +++++++++++++++++++++++
 // console.log(addone(5));//function call
 function addone (num){
@@ -362,15 +439,15 @@ let company = {
     empID:123,
     empPay:30000,
    empWork:function(){
-    // console.log(`${this.emp} ,1st Employee in Company`);
+    console.log(`${this.emp} ,1st Employee in Company`);
     // console.log(this);
     
     }
     
 }
-// console.log(company.empWork());
-// company.emp="Ali";
-// console.log(company.empWork());
+console.log(company.empWork());
+company.emp="Ali";
+console.log(company.empWork());
 // Object.freeze(company);// lock changes in object
 // company.emp="Ali Raza";
 // console.log(company.empWork());
@@ -405,7 +482,7 @@ let arrowfun=()=> ({name:"Ali",rollnumber:123})  //in implicit return function  
 })("Aziz");// In This case We Can Use ; at the end 
 
 // Two IIFE are write with The help of semicolun at the end of code like uper case
-//(// named IIFE and written in parathencies ( (parameter)=>{function Defination} )(arguments);
+//(// named IIFE  written in parathencies ( (parameter)=>{function Defination} )(arguments);
 //   function chai(num1,num2) {
 //   console.log(num1+num2)
 //   }
@@ -421,7 +498,7 @@ let arrowfun=()=> ({name:"Ali",rollnumber:123})  //in implicit return function  
 // (1)=> Global Execution context 
 // (2)=> Functional Execution context 
 // (3)=> Eval Execution context 
-//=> Javasript execute theprogrm into two Phase
+//=> Javasript execute the program into two Phase
 // (1)=> Memory Creation Phase
 // (2)=> Execution Phase
 //==================  Code Execution Example   =========
@@ -448,7 +525,7 @@ console.log(addnum(val_1,val_2));
 //         break;
 //     case "tuesday":
 //         console.log("tuesday");
-//         break;jch
+//         break;
 //     case "wednesday":
 //         console.log("wednesday");
 //         break;
@@ -496,18 +573,22 @@ const userEmail = "";//false
     
  }
     // Nullish Coalescing Operator (??):- work on special>> null and undefined
-    let val1 ;
+//     let val1 ;
 //  val1=5 ?? 10;
+//  console.log(val1);
 //  val1=  null ?? 10;
+//  console.log(val1);
 //  val1=  undefined ?? 10;
+//  console.log(val1);
 //  val1=  undefined ?? null ?? 20;
- val1=  undefined ?? 10 ?? 20;
+//  console.log(val1);
+//  val1=  undefined ?? 10 ?? 20;
 //  console.log(val1);
 
 
  //     Ternary operator is a second way of writing if else
 //  condition ? true : false 
- let age  = 20;
+ let age  = 40;
 //  age>=0  ? console.log("adult") : console.log("not adult");
 
 
@@ -527,8 +608,8 @@ const userEmail = "";//false
 //  for (let i = 0; i <= 10; i++) {
 //     console.log(`Outer Loop is Equal= ${i}`);
 //     for (let j = 0; j <= 10; j++) {
-//         // console.log(i + '*' + j +'='+ i*j);
-//         console.log(`${i} * ${j} = ${i*j} `);
+//         console.log(i + '*' + j +'='+ i*j);
+//         // console.log(`${i} * ${j} = ${i*j} `);
         
         
 //     }
@@ -569,10 +650,11 @@ const userEmail = "";//false
 // }
 
 let myArray =["aziz" , "ahmad" , "Ali" , 12 ,true ,"pass"]
-// for (let ind = 0; ind < myarray.length; ind++) {
+// for (let ind = 0; ind < myArray.length; ind++) {
 //     // console.log(ind[0]);
+//     // console.log(myArray[ind]);
     
-//     const element = myarray[ind];
+//     const element = myArray[ind];
 //     console.log(element);  
 // } 
 // let arrr = 0;
@@ -580,13 +662,15 @@ let myArray =["aziz" , "ahmad" , "Ali" , 12 ,true ,"pass"]
 //     console.log(`${myArray[arrr]}`);
 //     arrr++;
 // }
-let pointer=0;
-// while (pointer<=myarray.length) {
-//  console.log(myarray[pointer]);
+// let pointer=0;
+// while (pointer<=myArray.length) {
+//  console.log(myArray[pointer]);
 //     pointer = pointer + 1
-// }
+// // }
+// console.log( myArray );
 // console.log(typeof myArray );
-
+let pointer=0;
+// do while loop is used to run code at least one time
 // do {
 //     console.log(myArray[pointer]);
 //     pointer = pointer + 1
@@ -596,12 +680,14 @@ let pointer=0;
 //===========================       High Order Array loops    =======================
 //============================                               ========================
  //   For Of Loop provide the values in iterations but for in loop provide keys in iterations
- //we can use for in loop on Object andwe can use for of loop and for each loop on an array (for each loop is mostely use )
+ //we can use for in loop on Object and we can use for of loop and for each loop on an array (for each loop is mostely use )
 //  let greeting = "Aziz Ur Rehman "
 //  for (const greet of greeting) {
 //     if (greet===" ") {
 //        console.log("space in string");
-//        continue
+//
+//        break// this keyword is used to stop loop
+          //continue // this keyword run loop after detection
         
         
 //     }
@@ -627,12 +713,12 @@ map_1.set('fr', "France")
 // console.log( typeof map_1);
 
 //  use of loop on map object  perform same function on object is not work because object is not iteratable in this way like map
-for ([keys , value] of map_1) {//[point , value] use to destructure an Array
+for (const [keys , value] of map_1) {//[point , value] use to destructure an Array
     // console.log(keys);
     // console.log(value);
     
     
-    // console.log(keys, ":-",value);
+    //console.log(keys, ":-",value);
     
 }
 
@@ -641,23 +727,19 @@ let obj11 = {   /// Error :>  obj11 is not iterable
     game2: 'nyc'
 }
 // const objArray=(Object.entries(obj11));
-// const objArray=(Object.values(obj11));
-// const objArray=(Object.keys(obj11));
-const objArray=(Object.values(obj11));
-// console.log(objArray)
 // console.log(objArray.length)
 // const str_Array = objArray.join();
 // console.log(str_Array);
 
 
-for (const element of objArray) {//for of loop to access values  of object
+// for (const element of objArray) {//for of loop to access values  of object
     // console.log(element);
     
 //    const sprArray=element.join(element)
 //    console.log(sprArray);
    
     
-}
+// }
 
 // for (const [key , value] of obj11) {//
 // // TypeError: obj11 is not iterable
@@ -665,27 +747,25 @@ for (const element of objArray) {//for of loop to access values  of object
 // }
 //---------------                 for in loop
 
-for (const key  in obj11) { /// for object  we use for in loop
-    // console.log(key);
-    // console.log(obj11[key]);
+// for (const key  in obj11) { /// for object  we use for in loop
+//     console.log(key);
+//     console.log(obj11[key]);
     
     
     // console.log(`${key} is a shortcut of ${obj11[key]}`);
     
-}
-// for (const [key , value] in obj11) {
-//  console.log(key,value);  
 // }
 
-let arr = ['a','b','c']
+// let arr = ['a','b','c']
 // for (const key in arr) {//for in loop
 // console.log(key);
+// console.log(arr[key]);
 
-//     console.log(arr[key]);// this code access keys of arrays 
+//     // console.log(arr[key]);// this code access keys of arrays 
     
 // }
 // for each loop
-// const std_Array= ["Aziz","Ali","Usman"]
+const std_Array= ["Aziz","Ali","Usman"]
 // std_Array.forEach( (item)=>{//CallBack Function Is Function That Has NO Name (allback function hasno name) 
 // console.log(item);
 
@@ -699,10 +779,10 @@ function printItem (item){
 //     console.log(val); // access value of array  
 // })
 
-// arr.forEach((val,index,arr)=>{  // use of arrow function
-//  console.log(val,index,arr);
+std_Array.forEach((val,index,arr)=>{  // use of arrow function
+ console.log(val,index,arr);
  
-// })
+})
 // another way of doing same process 
 function print (item , index , arr){ // for each takes three parameters
     // console.log(`This is a value:${item} This is a index of Array:${ index} List of complete Array: ${arr}`);   
@@ -724,6 +804,7 @@ let arrObject = [//array with multiple objects and we can access with for each l
     {
         class:"5th",
         rollNumber:123
+        
     },
     {
         unique_colour:"red"
@@ -742,15 +823,16 @@ let arrObject = [//array with multiple objects and we can access with for each l
 //Filter wors just like a loop But it is a better way to find the items from array
 // for Each loop does not return values when store in variable
 
-// let arrstore=arr.forEach( (item)=>{
+// let arrstore1=arr.forEach( (item)=>{
 //   console.log(item);
   
 // } )
-// console.log(arrstore);// for Each loop does not return values when store in variable
+// console.log(arrstore1);// for Each loop does not return values when store in variable
  const  arra= [1,2,3,4,5,6,7,8,9,10]
 //implicit return
-// let arrstore=arra.filter( (num)=> num>4 ) //auto return because scop is not used
-// console.log(arrstore);//filter return values when store in variable
+let arrstore2=arra.filter( (num)=> num>4 ) //auto return because scop is not used and it is implicit return and we can use a condition 
+// console.log(arrstore2);//filter return values when store in variable
+console.log(arrstore2);//filter return values when store in variable
 
 
 // let arrstore=arra.filter( (num)=> {//explicit return >> return keyword must be used because scope {} is used
@@ -801,23 +883,26 @@ let res=numbers
 const array1 = [1, 2, 3, 4];
 
 //         Reduce Method or keyword
- // reducemathod is use when we can add the price  of different  cards
+ // reduce method is use when we can add the price  of different  cards
 // 0 + 1 + 2 + 3 + 4
-const initialValue = 0;
-const sumWithInitial = array1.reduce(
-    
-    
-  (accumulator, currentValue) => accumulator + currentValue,
-  0//accumutator value
-
-);
 // const initialValue = 0;
 // const sumWithInitial = array1.reduce(
+    
+    
 //   (accumulator, currentValue) => accumulator + currentValue,
-//   initialValue,
+//   0//accumutator value
+
+// );
+// const initialValue = 0;
+// const sumWithInitial = array1.reduce(
+    
+//     (accumulator, currentValue) => accumulator + currentValue,
+//     initialValue,
+//     console.log(`acc: ${accumulator} and curval: ${currentValue}`)
 // );
 
-console.log(sumWithInitial);
+// console.log(sumWithInitial);
+// console.log(`sumWithInitial`);
 // Expected output: 10\
 
 
@@ -842,8 +927,8 @@ console.log(sumWithInitial);
     }
  ]
 
- let mytotal=courses.reduce( (accumulator,item)=>(accumulator+item.price),0 )
-console.log("Totale value of our Courses:-",mytotal);
+//  let mytotal=courses.reduce( (accumulator,item)=>(accumulator+item.price),0 )
+// console.log("Totale value of our Courses:-",mytotal);
 
 
 
