@@ -1,0 +1,64 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(bg2_image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 40px;
+}
+h1{
+    font-size: 60px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    padding: 30px;
+    border-radius: 10px;
+    color: rgb(250, 251, 250);
+    background: rgba(0, 0, 0,0.7);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    box-shadow: 0px 0px 20px 5px rgb(249, 249, 249);
+}
+.main{
+    height: 390px;
+    width: 40%;
+    background: rgba(0, 0, 0,0.7);
+    color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 0px 10px;
+
+}
+.test{
+    border-bottom: 3px solid rgb(251, 251, 251);
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+#btn{
+    height: 50px;
+    width: 100%;
+    font-size: 35px ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(255, 242, 3);
+    cursor: pointer;
+    margin-top: 10px;
+}
+input[type="radio"] {
+  width: 25px;
+  height: 25px;
+  
+}
+
