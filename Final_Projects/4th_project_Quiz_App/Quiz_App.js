@@ -20,7 +20,7 @@ const questions = [
 let index = 0;
 const totle = questions.length;
 let Right = 0,
-      Wrong = 0;
+    Wrong = 0;
 const boxque = document.getElementById("questions");
 const optioninputs = document.querySelectorAll(".option");
 const button=document.getElementById("btn");
@@ -46,19 +46,19 @@ const loadquestion = ()=>{
         // console.log("Index:", index);
         // console.log("Questions Length:", questions.length);
         // console.log("Question at index:", questions[index]);
+        let data = questions[index];
 
        if (index >= questions.length) {
            alert("Quiz Completed");
         }
-        let data = questions[index];
         const ans = getAnswer();
         // console.log(ans, data.correct);
         // console.log(data.correct);
         
-        if (!ans) {
-        alert("Please select an option!");
-        return;
-    }
+            if (!ans) {
+            alert("Please select an option!");
+            return;
+        }
 
 
         if (ans == data.correct){
@@ -77,7 +77,7 @@ const loadquestion = ()=>{
     function getAnswer(){
         let answer;
           optioninputs.forEach((input) => {
-        if (input.checked) {
+         if (input.checked) {
             answer= input.value;
             // console.log(input.value);  // selected answer show karega
         }
@@ -92,6 +92,7 @@ const loadquestion = ()=>{
         input.checked = false;
     });
    }
+   
 
    function endQuiz(){
     document.querySelector(".main").innerHTML=`
