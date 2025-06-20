@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: #28056d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    height:400px;
+    width: 350px;
+    background-color: #190a38;
+    border-radius: 10px;
+    position: relative;
+    /* overflow: hidden; */
+}
+.container img{
+    height:100%;
+    border-radius: 10px;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+.container i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50% ) scale(0);/*transform property cannot use two time therefore we can write scale inside the same transform*/
+    font-size: 60px;
+    color: aliceblue;
+    opacity: 0;
+    transition: transform ease 0.5s;
+}
+#like_icon{
+    position: absolute;
+    top: 50%;
+    left: 57%;
+    z-index: 1;
+     font-size: 30px;
+    color: aliceblue;
+    cursor: pointer;
+    transition: ease 0.5s;
+
+}
+
