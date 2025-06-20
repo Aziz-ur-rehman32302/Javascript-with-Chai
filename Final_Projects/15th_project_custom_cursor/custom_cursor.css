@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 90px;
+    font-weight: 900;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.cursor{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transition: all linear 0.2s;
+    mix-blend-mode: difference;
+}
